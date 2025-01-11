@@ -1,4 +1,5 @@
 import React from '../lib/react.js';
+import Switch from './switch';
 import ChipButton from './button';
 
 const { createElement: h } = React;
@@ -8,7 +9,7 @@ function ButtonWrap() {
 }
 
 function App() {
-  return h('div', { className: 'app' }, h(ButtonWrap));
+  return h(React.Fragment, { className: 'app' }, h(Switch), h(ButtonWrap));
 }
 
 export default App;
