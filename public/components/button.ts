@@ -1,11 +1,13 @@
 import React from '../lib/react.js';
 
-function ChipButton({ children }) {
+function ChipButton({ children, active }) {
+  const className = active ? `chip-button is-active` : `chip-button`;
+
   return React.createElement(
     'button',
     {
       type: 'button',
-      className: 'chip-button',
+      className,
       onClick: (e: MouseEvent) => {
         const target = e.currentTarget as HTMLButtonElement;
         const buttonWrap = target.closest('.button-wrap') as HTMLDivElement;
