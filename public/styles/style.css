@@ -1,0 +1,51 @@
+body {
+  color: #3d3d41;
+}
+
+:root {
+  --primary-color: #004fff;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.wrap {
+  padding: 3rem;
+}
+
+/* button */
+button {
+  border: none;
+  background-color: initial;
+  appearance: none;
+}
+
+.chip-button {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid rgba(0 0 0 / 0.1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 0.875rem;
+  cursor: pointer;
+
+  &.is-active {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+}
+
+.button-wrap {
+  display: flex;
+  column-gap: 0.5rem;
+}
