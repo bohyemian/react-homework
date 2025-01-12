@@ -11,7 +11,7 @@ function ChipButton({ children, active }) {
       onClick: (e: MouseEvent) => {
         const target = e.currentTarget as HTMLButtonElement;
         const buttonWrap = target.closest('.button-wrap') as HTMLDivElement;
-        const buttonAll = buttonWrap.querySelectorAll('.chip-button');
+        const buttonAll = buttonWrap?.querySelectorAll('.chip-button');
 
         if (buttonAll) {
           [...buttonAll].map((button) => button.classList.remove('is-active'));
