@@ -9,7 +9,7 @@ function ButtonWrap() {
 }
 
 function App() {
-  return h(React.Fragment, { className: 'app' }, h(Switch, { id: 'switch', label: '레이블' }), h(ButtonWrap), h(Profile));
+  return h(React.Fragment, { className: 'app' }, h(Switch, { id: 'switch', label: '레이블' }), h(ButtonWrap));
 }
 
 export default App;
