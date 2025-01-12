@@ -42,7 +42,7 @@ button {
   border-radius: 0.875rem;
   cursor: pointer;
 
-  &.is-active {
+  &[aria-pressed='true'] {
     border-color: var(--primary-color);
     background-color: var(--primary-color);
     color: #fff;
