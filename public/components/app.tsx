@@ -2,8 +2,6 @@ import React from '../lib/react.js';
 import Switch from './switch';
 import ChipButton from './button.tsx';
 
-const { createElement: h } = React;
-
 function ButtonWrap() {
   return (
     <div className="button-wrap">
