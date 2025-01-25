@@ -1,0 +1,6 @@
+@layer base, components, utilities;
+
+@import '@/styles/common/normalize.css' layer(base);
+@import '@/styles/common/base.css' layer(base);
+
+@import '@/styles/utilities/a11y.css' layer(utilities);
