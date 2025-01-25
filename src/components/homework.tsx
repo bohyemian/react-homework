@@ -1,6 +1,6 @@
-import React from '../lib/react.js';
 import Switch from './switch';
-import ChipButton from './button.tsx';
+import ChipButton from './button';
+import '@/styles/components/style.css'
 
 function ButtonWrap() {
   return (
@@ -12,7 +12,7 @@ function ButtonWrap() {
   )
 }
 
-function App() {
+function Homework() {
   return (
     <>
       <Switch id="switch" label="레이블명"></Switch>
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Homework;

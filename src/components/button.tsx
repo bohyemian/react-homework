@@ -1,6 +1,3 @@
-import React from '../lib/react.js';
-
-
 interface ChipButtonType {
   children?: React.ReactNode;
   active?: boolean
