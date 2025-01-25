@@ -12,8 +12,14 @@ form {
       position: absolute;
       inset: 100% 3.2rem auto 3.2rem;
       translate: 0 -50%;
+      z-index: 1;
     }
   }
+}
+
+button {
+  border: 0;
+  appearance: none;
 }
 
 .form-input {
@@ -26,6 +32,7 @@ form {
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 2rem;
+    user-select: none;
   }
 
   input {

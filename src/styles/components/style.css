@@ -1,104 +1,86 @@
 @layer components {
-  body {
-    color: #3d3d41;
-  }
-
-  :root {
+  .ui-homework {
     --primary-color: #004fff;
-  }
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    border: 0;
-    clip: rect(0 0 0 0);
-  }
+    padding: 2.4rem;
+    margin-block-end: 2.4rem;
+    background-color: #fff;
+    color: #3d3d41;
+    border-radius: var(--rounded);
 
-  /* layout */
-  .app {
-    display: flex;
-    flex-flow: column wrap;
-    row-gap: 4rem;
-    padding: 4.8rem;
-  }
-
-  /* button */
-  button {
-    border: none;
-    background-color: initial;
-    appearance: none;
-  }
-
-  .chip-button {
-    padding: 0.6rem 1.2rem;
-    border: 1px solid rgba(0 0 0 / 0.1);
-    font-family: 'Pretendard-SemiBold', sans-serif;
-    font-size: 1.4rem;
-    line-height: 1;
-    border-radius: 1.4rem;
-    cursor: pointer;
-
-    &[aria-pressed='true'] {
-      border-color: var(--primary-color);
-      background-color: var(--primary-color);
-      color: #fff;
-    }
-  }
-
-  .button-wrap {
-    display: flex;
-    column-gap: 0.8rem;
-    margin-block: 0.8rem;
-  }
-
-  /* switch */
-  .ui-switch {
-    --padding: 0.2rem;
-    --bg-color: #e8eef2;
-
-    display: inline-block;
-    position: relative;
-    inline-size: 5rem;
-    block-size: 3rem;
-    padding: var(--padding);
-    background-color: var(--bg-color);
-    border-radius: 1.5rem;
-    vertical-align: top;
-    transition: background 0.2s;
-
-    &:before {
-      display: block;
-      position: absolute;
-      inset-inline-start: var(--padding);
-      inset-block: var(--padding);
-      border: 0.5px solid rgba(0 0 0 / 0.05);
-      background-color: #fff;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      translate: 0 0;
-      transition: 0.2s;
-      content: '';
+    /* button */
+    button {
+      border: none;
+      background-color: initial;
+      appearance: none;
     }
 
-    &:has(input:checked) {
-      --bg-color: var(--primary-color);
-      &:before {
-        inset-inline-start: calc(100% - var(--padding));
-        translate: -100% 0;
+    .chip-button {
+      padding: 0.6rem 1.2rem;
+      border: 1px solid rgba(0 0 0 / 0.1);
+      font-family: 'Pretendard-SemiBold', sans-serif;
+      font-size: 1.4rem;
+      line-height: 1;
+      border-radius: 1.4rem;
+      cursor: pointer;
+
+      &[aria-pressed='true'] {
+        border-color: var(--primary-color);
+        background-color: var(--primary-color);
+        color: #fff;
       }
     }
 
-    input {
-      position: absolute;
-      inset: 0;
-      margin: 0;
-      appearance: none;
-      cursor: pointer;
+    .button-wrap {
+      display: flex;
+      column-gap: 0.8rem;
+      margin-block: 0.8rem;
+    }
+
+    /* switch */
+    .ui-switch {
+      --padding: 0.2rem;
+      --bg-color: #e8eef2;
+
+      display: inline-block;
+      position: relative;
+      inline-size: 5rem;
+      block-size: 3rem;
+      padding: var(--padding);
+      background-color: var(--bg-color);
+      border-radius: 1.5rem;
+      vertical-align: top;
+      transition: background 0.2s;
+
+      &:before {
+        display: block;
+        position: absolute;
+        inset-inline-start: var(--padding);
+        inset-block: var(--padding);
+        border: 0.5px solid rgba(0 0 0 / 0.05);
+        background-color: #fff;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        translate: 0 0;
+        transition: 0.2s;
+        content: '';
+      }
+
+      &:has(input:checked) {
+        --bg-color: var(--primary-color);
+        &:before {
+          inset-inline-start: calc(100% - var(--padding));
+          translate: -100% 0;
+        }
+      }
+
+      input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        appearance: none;
+        cursor: pointer;
+      }
     }
   }
 }

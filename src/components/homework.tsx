@@ -14,10 +14,10 @@ function ButtonWrap() {
 
 function Homework() {
   return (
-    <>
+    <div className="ui-homework">
       <Switch id="switch" label="레이블명"></Switch>
       <ButtonWrap />
-    </>
+    </div>
   );
 }
 
