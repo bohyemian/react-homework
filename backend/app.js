@@ -3,7 +3,9 @@ import fileUpload from 'express-fileupload';
 import { resolve } from 'node:path';
 
 const app = express();
-app.use(express.static(resolve('./public')));
+app.use(express.static(resolve('../src')));
+
+/* Routing ------------------------------------------------------------------ */
 
 app.get('/', (request, response) => {
   response.status(200).send('<h1>안녕!</h1>');

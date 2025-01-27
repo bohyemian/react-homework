@@ -3,6 +3,7 @@
 @import '@/styles/common/normalize.css' layer(base);
 @import '@/styles/common/base.css' layer(base);
 
+@import '@/styles/components/header.css' layer(components);
 @import '@/styles/components/form.css' layer(components);
 
 @import '@/styles/utilities/a11y.css' layer(utilities);

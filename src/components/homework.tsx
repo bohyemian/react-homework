@@ -1,6 +1,6 @@
 import Switch from './switch';
 import ChipButton from './button';
-import '@/styles/components/style.css'
+import '@/styles/components/switch-chip-button.css'
 
 function ButtonWrap() {
   return (

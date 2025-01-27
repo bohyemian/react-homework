@@ -1,0 +1,30 @@
+.header {
+  position: sticky;
+  inset: 0 0 auto 0;
+  padding: 2rem 2.4rem;
+  background-color: #f4f4f4;
+  z-index: 10;
+
+  .inner {
+    display: flex;
+    column-gap: 1rem;
+  }
+
+  .menu {
+    padding-inline: 2rem;
+    font-size: 1.6rem;
+    line-height: 2;
+    color: var(--darkgray);
+    text-decoration: none;
+  }
+
+  .user-menu {
+    display: inherit;
+    margin-inline-start: auto;
+  }
+}
+
+.inner {
+  max-inline-size: 128rem;
+  margin-inline: auto;
+}
