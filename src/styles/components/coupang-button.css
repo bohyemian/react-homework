@@ -1,0 +1,31 @@
+.coupang-btn {
+  min-inline-size: 34.2rem;
+  padding: 1.4rem;
+  border: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.45);
+  border-radius: .2rem;
+
+  &:not(:disabled) {
+    color: var(--blue);
+  }
+
+  &:disabled {
+    background-color: var(--gray-disabled);
+    color: var(--blue-disabled);
+  }
+
+  &.primary {
+    &:not(:disabled) {
+      background-color: var(--blue);
+      color: #fff;
+    }
+
+    &:disabled {
+      background-color: var(--blue-disabled);
+      color: #D4E0ED;
+    }
+  }
+}

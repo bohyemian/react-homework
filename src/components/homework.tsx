@@ -15,6 +15,7 @@ function ButtonWrap() {
 function Homework() {
   return (
     <div className="ui-homework">
+      <h2>UI Components</h2>
       <Switch id="switch" label="레이블명"></Switch>
       <ButtonWrap />
     </div>

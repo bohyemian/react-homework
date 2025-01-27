@@ -7,6 +7,10 @@ form {
   background-color: #fff;
   border-radius: var(--rounded);
 
+  &:has(.btn[type='submit']) {
+    margin-block-end: 2.2rem;
+  }
+
   .btn {
     &[type='submit'] {
       position: absolute;
@@ -25,8 +29,8 @@ button {
 .form-input {
   display: flex;
   flex-direction: column;
-  padding-block-end: .4rem;
-  border-block-end: 1px solid #D9D9DE;
+  padding-block-end: 0.4rem;
+  border-block-end: 1px solid #d9d9de;
 
   label {
     font-size: 1.6rem;
@@ -36,7 +40,7 @@ button {
   }
 
   input {
-    padding-block: .8rem;
+    padding-block: 0.8rem;
     border: none;
     font-size: 1.4rem;
     line-height: 2rem;
