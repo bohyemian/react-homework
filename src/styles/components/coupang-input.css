@@ -1,0 +1,67 @@
+.coupang-input {
+  --icon-size: 4.5rem;
+  --padding: 1.4rem;
+  --font-size: 1.6rem;
+  --font-weight: 500;
+  --line-height: 2.2rem;
+  display: flex;
+  position: relative;
+  border: 1px solid var(--lightgray);
+
+  &:focus-within {
+    border-color: var(--blue);
+  }
+
+  input {
+    inline-size: 100%;
+    padding: var(--padding);
+    border: 0;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    outline: none;
+  }
+
+  label {
+    position: absolute;
+    inset-inline-start: var(--padding);
+    inset-block-start: 50%;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    color: var(--gray);
+    translate: 0 -50%;
+    user-select: none;
+  }
+
+  &:has(svg) {
+    &:before {
+      position: absolute;
+      inset-inline-start: var(--icon-size);
+      inset-block: 0;
+      inline-size: .5px;
+      background-color: var(--lightgray);
+      content: '';
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+
+    &~label {
+      inset-inline-start: calc(var(--icon-size) + var(--padding));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    max-inline-size: 57.6rem;
+  }
+}
+
+.input-hint {
+  padding: 1rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  color: var(--red);
+}

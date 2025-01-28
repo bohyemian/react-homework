@@ -1,11 +1,15 @@
 :root {
   --rounded: 0.8rem;
+
   --primary-color: #3578ff;
   --blue: #0074e9;
   --blue-disabled: #97aabd;
+  --lightgray: #ccc;
+  --gray: #929292;
   --darkgray: #555;
   --mediumgray: #aaa9a9;
   --black: #111;
+  --red: #e52528;
 
   background-color: #d7dadf;
   font-size: 62.5%; /* 10px */
