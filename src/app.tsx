@@ -7,14 +7,15 @@ import CoupangGuide from './components/coupang-guide';
 
 function App() {
   const [isLoginPage, setLoginPage] = useState<boolean>(true);
+  const userMenu = [{menu: '로그인', isActive: true}, {menu: '회원가입', isActive: false}];
 
-  function handleLoginToggle() {
-    setLoginPage(!isLoginPage);
+  function handleLoginToggle(isLogin: boolean) {
+    setLoginPage(isLogin);
   }
 
   return (
     <>
-      <Header routeSign={handleLoginToggle} />
+      <Header routeSign={handleLoginToggle} userMenu={userMenu} />
       <section className="wrap">
         <h1 className="sr-only">과제</h1>
         <Homework />

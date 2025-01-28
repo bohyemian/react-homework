@@ -11,11 +11,21 @@
   }
 
   .menu {
+    flex-shrink: 0;
     padding-inline: 2rem;
     font-size: 1.6rem;
     line-height: 2;
     color: var(--darkgray);
     text-decoration: none;
+    transition: padding 0.3s, color 0.3s;
+
+    &:hover {
+      color: var(--black);
+    }
+
+    @media (max-width: 580px) {
+      padding-inline: 1rem;
+    }
   }
 
   .user-menu {

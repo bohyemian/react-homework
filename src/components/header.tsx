@@ -1,12 +1,18 @@
-interface HeaderProps {
-  routeSign: () => void
+interface UserMenu {
+  menu: string;
+  isActive: boolean
 }
 
-function Header({routeSign}: HeaderProps) {
-  function toggleUserMenu(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+interface HeaderProps {
+  userMenu: UserMenu[];
+  routeSign: (isLogin: boolean) => void;
+}
+
+function Header({routeSign, userMenu}: HeaderProps) {
+  function toggleUserMenu(isLogin: boolean, e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     e.preventDefault();
 
-    routeSign?.();
+    routeSign?.(isLogin);
   }
 
   return (
@@ -15,8 +21,7 @@ function Header({routeSign}: HeaderProps) {
         <a href="/" className="menu">즐겨찾기</a>
         <a href="/" className="menu">입점신청</a>
         <div className="user-menu">
-          <a href="/" className="menu" onClick={toggleUserMenu}>로그인</a>
-          <a href="/" className="menu" onClick={toggleUserMenu}>회원가입</a>
+          {userMenu.map(({menu, isActive}) => <a href="/" key={menu} className="menu" onClick={(e) => toggleUserMenu(isActive, e)}>{menu}</a>)}
         </div>
         <a href="/" className="menu">고객센터</a>
       </div>

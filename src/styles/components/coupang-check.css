@@ -1,0 +1,24 @@
+.coupang-checkbox {
+  position: absolute;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  margin: 2px 0 0 3px;
+
+  &:disabled {
+    &+label {
+      color: var(--mediumgray);
+    }
+  }
+
+  &+label {
+    display: flex;
+    align-items: center;
+    column-gap: .6rem;
+    user-select: none;
+
+    svg {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
