@@ -14,4 +14,4 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 ### 구현 화면 [바로가기](https://bohyemian.github.io/react-homework/dist/)
 
-![크롬](./README/ui.gif)
+![크롬](https://github.com/bohyemian/react-homework/blob/7de3874cec795dcd5a39f45adff4827c7c30408d/README/ui.gif)
