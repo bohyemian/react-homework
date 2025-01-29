@@ -1,22 +1,24 @@
-form {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.1rem;
-  position: relative;
-  padding: 2.4rem 2.4rem 6.4rem 2.4rem;
-  background-color: #fff;
-  border-radius: var(--rounded);
+.wrap {
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.1rem;
+    position: relative;
+    padding: 2.4rem 2.4rem 6.4rem 2.4rem;
+    background-color: #fff;
+    border-radius: var(--rounded);
 
-  &:has(.btn[type='submit']) {
-    margin-block-end: 2.2rem;
-  }
+    &:has(.btn[type='submit']) {
+      margin-block-end: 2.2rem;
+    }
 
-  .btn {
-    &[type='submit'] {
-      position: absolute;
-      inset: 100% 3.2rem auto 3.2rem;
-      translate: 0 -50%;
-      z-index: 1;
+    .btn {
+      &[type='submit'] {
+        position: absolute;
+        inset: 100% 3.2rem auto 3.2rem;
+        translate: 0 -50%;
+        z-index: 1;
+      }
     }
   }
 }
@@ -29,7 +31,7 @@ button {
 .form-input {
   display: flex;
   flex-direction: column;
-  row-gap: .4rem;
+  row-gap: 0.4rem;
   padding-block-end: 0.8rem;
   border-block-end: 1px solid #d9d9de;
 

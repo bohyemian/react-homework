@@ -4,6 +4,7 @@ import Homework from './components/homework';
 import SignIn from './components/signIn';
 import SignUp from './components/signUp';
 import CoupangGuide from './components/coupang-guide';
+import CoupangSignIn from './components/coupang-signin';
 
 function App() {
   const [isLoginPage, setLoginPage] = useState<boolean>(true);
@@ -20,6 +21,15 @@ function App() {
         <h1 className="sr-only">과제</h1>
         <Homework />
         {isLoginPage ? <SignIn /> : <SignUp />}
+      </section>
+      <section>
+        {isLoginPage ?
+          <>
+            <h2 className="sr-only">쿠팡 로그인</h2>
+            <CoupangSignIn />
+          </> :
+          null
+        }
       </section>
       <section className="wrap">
         <h2>Coupang</h2>

@@ -38,6 +38,7 @@
     font-size: 1.2rem;
     line-height: 1;
     color: var(--darkgray);
+    white-space: nowrap;
 
     svg {
       position: absolute;
