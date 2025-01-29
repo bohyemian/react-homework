@@ -26,6 +26,12 @@ function CoupangGuide() {
         <CoupanButton />
         <CoupanButton className="primary" disabled />
         <CoupanButton disabled />
+        <a href="/" className="btn-arrow">
+          <span>아이디(이메일)/비밀번호 찾기</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width={11} height={18} viewBox="0 0 11 18" fill="none">
+            <path d="M1.5 1L9.5 9L1.5 17" stroke="#0074E9" strokeWidth={2} />
+          </svg>
+        </a>
       </div>
       <h3>Input Field</h3>
       <CoupangInput label="아이디(이메일)" type="email" />

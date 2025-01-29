@@ -1,24 +1,48 @@
 .coupang-checkbox {
-  position: absolute;
-  inline-size: 2.4rem;
-  block-size: 2.4rem;
-  margin: 2px 0 0 3px;
+  position: relative;
+  margin-block-end: 3.8rem;
+  line-height: 0;
 
-  &:disabled {
-    &+label {
-      color: var(--mediumgray);
+  input {
+    position: absolute;
+    inline-size: 2.4rem;
+    block-size: 2.4rem;
+
+    &:disabled {
+      &+label {
+        color: var(--mediumgray);
+      }
     }
   }
 
-  &+label {
-    display: flex;
+  label {
+    display: inline-flex;
     align-items: center;
-    column-gap: .6rem;
+    column-gap: 0.6rem;
+    line-height: 1;
     user-select: none;
 
     svg {
       position: relative;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25);
       z-index: 1;
+    }
+  }
+
+  .tooltip {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: calc(100% + .8rem);
+    padding: .7rem .6rem;
+    background-color: var(--vivid-white);
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--darkgray);
+
+    svg {
+      position: absolute;
+      inset-inline-start: .4rem;
+      inset-block-end: 100%;
     }
   }
 }

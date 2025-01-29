@@ -1,11 +1,17 @@
 interface ChipButtonType {
   children?: React.ReactNode;
-  active?: boolean
+  active?: boolean;
+  index?: number;
+  onClick?: (index: number | undefined) => void;
 }
 
-function ChipButton({ children, active }: ChipButtonType) {
+function ChipButton({ children, active, index, onClick }: ChipButtonType) {
+  const handleClick = () =>{
+    onClick?.(index);
+  }
+
   return (
-    <button type="button" className="chip-button" aria-pressed={!!active}>{children}</button>
+    <button type="button" className="chip-button" onClick={handleClick} aria-pressed={active}>{children}</button>
   );
 }
 

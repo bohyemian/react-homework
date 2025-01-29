@@ -29,3 +29,13 @@
     }
   }
 }
+
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .6rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}

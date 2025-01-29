@@ -16,22 +16,28 @@ function CoupangCheck({label, checked = false, disabled = false, onChecked}: Cou
   }
 
   return (
-    <>
-      <input type="checkbox" id={checkboxId} className="coupang-checkbox" checked disabled={disabled} onChange={handleToggleCheck} />
+    <div className="coupang-checkbox">
+      <input type="checkbox" id={checkboxId} checked disabled={disabled} onChange={handleToggleCheck} />
       <label htmlFor={checkboxId}>
-        <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 30 30" fill="none">
-          <g filter="url(#filter0_d_886_485)">
-            <mask id="path-1-inside-1_886_485" fill="white">
-              <rect x={3} y={2} width={24} height={24} rx="0.791667" />
+        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
+          <g filter="url(#filter0_d_4940_346)">
+            <mask id="path-1-inside-1_4940_346" fill="white">
+              <rect width={24} height={24} rx="0.791667" />
             </mask>
-            <rect x={3} y={2} width={24} height={24} rx="0.791667" fill="#F4F4F4" />
-            <rect x={3} y={2} width={24} height={24} rx="0.791667" stroke="#CCCCCC" strokeWidth={2} mask="url(#path-1-inside-1_886_485)" />
+            <rect width={24} height={24} rx="0.791667" fill="#F4F4F4" />
+            <rect width={24} height={24} rx="0.791667" stroke="#CCCCCC" strokeWidth={2} mask="url(#path-1-inside-1_4940_346)" />
           </g>
-          {checked && <path fillRule="evenodd" clipRule="evenodd" d="M23 9.39644L12.1559 20L7 14.5001L8.4888 13.1656L12.2194 17.1451L21.5719 8L23 9.39644Z" fill={disabled ? "#AAA9A9" : "#0074E9"} />}
+          {checked && <path fillRule="evenodd" clipRule="evenodd" d="M20 7.39644L9.15593 18L4 12.5001L5.4888 11.1656L9.21937 15.1451L18.5719 6L20 7.39644Z" fill={disabled ? "#AAA9A9" : "#0074E9"} />}
         </svg>
         {label}
       </label>
-    </>
+      <div className="tooltip">
+        개인 정보 보호를 위해 본인 기기에서만 이용해주세요
+        <svg xmlns="http://www.w3.org/2000/svg" width={10} height={8} viewBox="0 0 10 8" fill="none">
+          <path d="M0 7.84619L4.85716 0.846191L10 7.84619H0Z" fill="#F4F4F4" />
+        </svg>
+      </div>
+    </div>
   )
 }
 
