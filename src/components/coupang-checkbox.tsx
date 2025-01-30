@@ -4,7 +4,7 @@ type CoupangCheckProps = ComponentProps<'input'> & {
   label: string;
   checked?: boolean;
   disabled?: boolean;
-  onChecked?: () => void;
+  onChecked?: (checked: boolean) => void;
 
 }
 
@@ -12,7 +12,7 @@ function CoupangCheck({label, checked = false, disabled = false, onChecked}: Cou
   const checkboxId = useId();
 
   function handleToggleCheck() {
-    onChecked?.();
+    onChecked?.(checked);
   }
 
   return (
@@ -31,12 +31,6 @@ function CoupangCheck({label, checked = false, disabled = false, onChecked}: Cou
         </svg>
         {label}
       </label>
-      <div className="tooltip">
-        개인 정보 보호를 위해 본인 기기에서만 이용해주세요
-        <svg xmlns="http://www.w3.org/2000/svg" width={10} height={8} viewBox="0 0 10 8" fill="none">
-          <path d="M0 7.84619L4.85716 0.846191L10 7.84619H0Z" fill="#F4F4F4" />
-        </svg>
-      </div>
     </div>
   )
 }

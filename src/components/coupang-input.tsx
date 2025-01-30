@@ -2,14 +2,26 @@ import { ComponentProps, useId } from "react";
 
 type CoupangInputProps = ComponentProps<'input'> & {
   label: string;
+  labelHidden?: boolean;
+  onChangeValue?: (target: EventTarget & HTMLInputElement) => void;
+  onInputBlur?: (target: EventTarget & HTMLInputElement) => void;
 }
 
-function CoupangInput({type = 'text', label}: CoupangInputProps) {
+function CoupangInput({type = 'text', label, labelHidden = false, onChangeValue, onInputBlur}: CoupangInputProps) {
   const inputId = useId();
+  const inputClassName = labelHidden ? 'coupang-input hidden' : 'coupang-input';
+
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChangeValue?.(e.currentTarget);
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    onInputBlur?.(e.currentTarget);
+  }
 
   return (
     <>
-      <div className="coupang-input">
+      <div className={inputClassName}>
         {type === 'email' && <svg xmlns="http://www.w3.org/2000/svg" width={45} height={50} viewBox="0 0 45 50" fill="none">
           <g clipPath="url(#clip0_1_249)">
             <rect width={45} height={50} fill="white" />
@@ -27,9 +39,8 @@ function CoupangInput({type = 'text', label}: CoupangInputProps) {
         </svg>}
 
         <label htmlFor={inputId}>{label}</label>
-        <input type={type} id={inputId} />
+        <input type={type} id={inputId} onChange={handleChangeValue} onBlur={handleBlur} />
       </div>
-      <div className="input-hint">아이디(이메일)는 이메일 형식으로 입력해주세요.</div>
     </>
   )
 }

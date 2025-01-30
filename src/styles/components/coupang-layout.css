@@ -18,13 +18,19 @@
   .input-form-wrap {
     display: flex;
     flex-direction: column;
-    column-gap: 2rem;
+    margin-block-end: 2.2rem;
+
+    .coupang-input~.coupang-input {
+      margin-block-start: 2rem;
+    }
   }
 
   .login-option {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    position: relative;
+    margin-block-end: 3.8rem;
   }
 
   .btn-wrap {

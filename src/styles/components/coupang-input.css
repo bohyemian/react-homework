@@ -12,6 +12,12 @@
     border-color: var(--blue);
   }
 
+  &.hidden {
+    label {
+      opacity: 0;
+    }
+  }
+
   input {
     inline-size: 100%;
     padding: var(--padding);
@@ -39,7 +45,7 @@
       position: absolute;
       inset-inline-start: var(--icon-size);
       inset-block: 0;
-      inline-size: .5px;
+      inline-size: 0.5px;
       background-color: var(--lightgray);
       content: '';
     }
@@ -48,7 +54,7 @@
   svg {
     flex-shrink: 0;
 
-    &~label {
+    & ~ label {
       inset-inline-start: calc(var(--icon-size) + var(--padding));
     }
   }
@@ -59,7 +65,7 @@
 }
 
 .input-hint {
-  padding: 1rem 1.2rem;
+  padding: 1rem 1.2rem 0;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
