@@ -1,29 +1,15 @@
-interface UserMenu {
-  menu: string;
-  isActive: boolean
-}
-
-interface HeaderProps {
-  userMenu: UserMenu[];
-  routeSign: (isLogin: boolean) => void;
-}
-
-function Header({routeSign, userMenu}: HeaderProps) {
-  function toggleUserMenu(isLogin: boolean, e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    e.preventDefault();
-
-    routeSign?.(isLogin);
-  }
-
+function Header() {
   return (
     <header className="header">
       <div className="inner">
-        <a href="/" className="menu">즐겨찾기</a>
-        <a href="/" className="menu">입점신청</a>
+        <a href="/?view=week1" className="menu">1주차 과제</a>
+        <a href="/?view=cart" className="menu">장바구니🛒</a>
         <div className="user-menu">
-          {userMenu.map(({menu, isActive}) => <a href="/" key={menu} className="menu" onClick={(e) => toggleUserMenu(isActive, e)}>{menu}</a>)}
+          <a href="/?view=login" className="menu">로그인</a>
+          <a href="/?view=join" className="menu">회원가입</a>
+          <a href="/?view=coupangLogin" className="menu">쿠팡 로그인</a>
         </div>
-        <a href="/" className="menu">고객센터</a>
+        <a href="/?view=guide" className="menu">guide style</a>
       </div>
     </header>
   )

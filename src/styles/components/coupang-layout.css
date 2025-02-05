@@ -1,8 +1,18 @@
+body {
+  &:has(.coupang-wrap) {
+    min-height: 100dvh;
+    background-color: #fff;
+
+    .header {
+      box-shadow: 0 0px 8px 0px #00000029;
+    }
+  }
+}
+
 .coupang-wrap {
   max-inline-size: 128rem;
   margin-inline: auto;
   padding: 23.6rem 2.4rem;
-  background-color: #fff;
   border-radius: var(--rounded);
 
   .logo {
