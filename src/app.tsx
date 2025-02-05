@@ -6,9 +6,10 @@ import SignUp from './components/signUp';
 import CoupangGuide from './components/coupang-guide';
 import CoupangSignIn from './components/coupang-signin';
 import { getUIView } from './utils/url-view';
+import Cart from './components/cart/cart';
+import '@/styles/tailwind.css';
 
 function App() {
-  const [isLoginPage] = useState<boolean>(true);
   const [urlView] = useState<string | null>(getUIView);
 
   return (
@@ -21,15 +22,12 @@ function App() {
           {urlView === 'login' ? <SignIn /> : null}
           {urlView === 'join' ? <SignUp /> : null}
         </section> : null}
+
+      {urlView === 'cart' ? <Cart /> : null}
       {urlView === 'coupangLogin' ?
         <section>
-          {isLoginPage ?
-            <>
-              <h2 className="sr-only">쿠팡 로그인</h2>
-              <CoupangSignIn />
-            </> :
-            null
-          }
+          <h2 className="sr-only">쿠팡 로그인</h2>
+          <CoupangSignIn />
         </section> : null}
 
       {urlView === 'guide' ?
