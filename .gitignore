@@ -3,7 +3,7 @@
 
 ### Custom ###
 .vscode
-docs
+# docs
 
 ### Node ###
 # Logs
