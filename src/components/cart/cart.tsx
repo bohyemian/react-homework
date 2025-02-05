@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProductItem, { ProductListType } from './product-item';
 
 const products:ProductListType[] = [
@@ -17,12 +18,17 @@ const products:ProductListType[] = [
     price: 2280,
     imgPath: 'public/images/products/product3.png'
   }
-]
+];
 
 function Cart() {
+  const [priceArray] = useState(() => products.map(item => item.price));
+  const priceSum = priceArray.reduce((sum, price) => sum + price)
+
   return (
     <div className="flex flex-col min-w-80 m-[24px] p-8 gap-[24px] border-[6px] border-(--color-gray-700) bg-white rounded-[12px]">
-      {products.map(({id, ...product}) => <ProductItem key={id} {...product} />)}
+      <h2>🛒 장바구니</h2>
+      {products.map(({id, ...product}, index) => <ProductItem key={id} {...product} />)}
+      <strong className="ml-auto">구매 총액 : {priceSum}원</strong>
     </div>
   )
 }
