@@ -5,6 +5,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 const viteConfig = defineConfig((env) => {
   return {
+    base: '/react-homework/docs/',
+    build: {
+      outDir: 'docs',
+    },
     plugins: [
       react({
         jsxRuntime: 'automatic',

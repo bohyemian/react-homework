@@ -8,7 +8,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default tseslint.config(
   {
-    ignores: ['dist'],
+    ignores: ['dist', 'docs'],
   },
   {
     files: ['**/*.{ts,tsx}'],
