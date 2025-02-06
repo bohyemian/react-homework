@@ -7,9 +7,10 @@ export interface ProductListType {
   stock: number;
   imgPath?: string | null;
   index?: number | undefined;
+  updateQuantity?: (i: number | undefined, q: number) => void;
 }
 
-function ProductItem({name, price, stock, imgPath, index}: Omit<ProductListType, 'id'>) {
+function ProductItem({name, price, stock, imgPath, index, updateQuantity}: Omit<ProductListType, 'id'>) {
   return (
     <div className="flex justify-between items-center">
       <figure className="flex items-center gap-[12px]">
@@ -20,7 +21,7 @@ function ProductItem({name, price, stock, imgPath, index}: Omit<ProductListType,
           <span className="absolute inset-x-[100%] top-0 ml-3 px-2 py-1 text-[13px] whitespace-nowrap">재고: {stock}</span>
         </figcaption>
       </figure>
-      <Quantity idx={index} max={stock} />
+      <Quantity idx={index} max={stock} updateQuantity={updateQuantity} />
     </div>
   )
 }

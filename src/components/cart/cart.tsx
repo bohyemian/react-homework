@@ -24,13 +24,20 @@ const products:ProductListType[] = [
 ];
 
 function Cart() {
-  const [priceArray] = useState(() => products.map(item => item.price));
-  const priceSum = priceArray.reduce((sum, price) => sum + price)
+  const [productArray, setProductArray] = useState(() => products.map(item => [item.price, 1]));
+  const priceSum = productArray.reduce((sum, [price, q]) => sum + (price * q), 0);
+
+  const changeQuantity = (i: number | undefined, q: number) => {
+    const changeArray = productArray.map((item, index) => index === i ? [item[0], q] : item);
+
+    setProductArray(changeArray);
+  }
+
 
   return (
     <div className="flex flex-col min-w-80 m-[24px] p-8 gap-[24px] border-[6px] border-(--color-gray-700) bg-white rounded-[12px]">
       <h2 className="font-bold">🛒 장바구니</h2>
-      {products.map(({id, ...product}, index) => <ProductItem key={id} {...product} />)}
+      {products.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
       <strong className="ml-auto">구매 총액 : {priceSum}원</strong>
     </div>
   )
