@@ -9,12 +9,11 @@ export interface ProductListType {
   index?: number | undefined;
 }
 
-
 function ProductItem({name, price, stock, imgPath, index}: Omit<ProductListType, 'id'>) {
   return (
     <div className="flex justify-between items-center">
       <figure className="flex items-center gap-[12px]">
-        {imgPath ? <img className="w-25.5" src={imgPath} alt={name} /> : null}
+        {imgPath ? <img className="w-25.5" src={import.meta.env.BASE_URL + imgPath} alt={name} /> : null}
         <figcaption className="relative">
           {name}
           <span className="block font-extrabold">{price}원</span>
