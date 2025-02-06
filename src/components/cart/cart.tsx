@@ -38,7 +38,7 @@ function Cart() {
     <div className="flex flex-col min-w-80 m-[24px] p-8 gap-[24px] border-[6px] border-(--color-gray-700) bg-white rounded-[12px]">
       <h2 className="font-bold">🛒 장바구니</h2>
       {products.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
-      <strong className="ml-auto">구매 총액 : {priceSum}원</strong>
+      <strong className="ml-auto">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
     </div>
   )
 }
