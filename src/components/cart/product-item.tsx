@@ -6,8 +6,8 @@ export interface ProductListType {
   price: number;
   stock: number;
   imgPath?: string | null;
-  index?: number | undefined;
-  updateQuantity?: (i: number | undefined, q: number) => void;
+  index: number;
+  updateQuantity?: (i: number, q: number) => void;
 }
 
 function ProductItem({name, price, stock, imgPath, index, updateQuantity}: Omit<ProductListType, 'id'>) {

@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 interface QuantityProps {
-  index: number;
+  idx: number;
   max: number;
-  idx: number | undefined;
-  updateQuantity?: (i: number | undefined, q: number) => void;
+  updateQuantity?: (i: number, q: number) => void;
 }
 
 function Quantity({idx, max, updateQuantity}: QuantityProps) {
