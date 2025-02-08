@@ -33,7 +33,47 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 <details open>
   <summary style="font-size: 18px;font-weight: bold">쇼핑 카트 UI 구현</summary>
-![cart_component](https://private-user-images.githubusercontent.com/31885579/411198649-c8946b6c-0941-4307-b257-8822d69e7fe5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDQ2MzAsIm5iZiI6MTczOTAwNDMzMCwicGF0aCI6Ii8zMTg4NTU3OS80MTExOTg2NDktYzg5NDZiNmMtMDk0MS00MzA3LWIyNTctODgyMmQ2OWU3ZmU1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA4NDUzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTBlYzliODY1ZTNhYmUzNjY2MjhmZGY1NWE5M2FjZmZiMzY5YzdjYTM4Mjk3ZWE4OWM2NDk5ZjdhZWM3NWQ3ZDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.mnRM6i4xEJpjGpEp6wP54sFAO2FcIkgO96XJJ_XTeC0)
-![cart_component_depth](https://private-user-images.githubusercontent.com/31885579/411198658-dc3bd8c2-c850-4983-98f7-63bcf8d1a0b9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDQ2MzAsIm5iZiI6MTczOTAwNDMzMCwicGF0aCI6Ii8zMTg4NTU3OS80MTExOTg2NTgtZGMzYmQ4YzItYzg1MC00OTgzLTk4ZjctNjNiY2Y4ZDFhMGI5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA4NDUzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWYyMzk2NzMxMjZkZDgxNWU1ODRjYzNlYjA0YzU2ZGY5NWUxNWUyYWNiYTMwZTdjZTczYjBjNDI5YTM5ODI4M2UmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.-0ahk_VNAINjAEb1gVsiBqX58eVAref5xbHrg4ppQVo)
   
+![cart_component](https://private-user-images.githubusercontent.com/31885579/411208791-db087cc6-2d85-4029-b6db-e6b766200a8f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDY3MDYsIm5iZiI6MTczOTAwNjQwNiwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMDg3OTEtZGIwODdjYzYtMmQ4NS00MDI5LWI2ZGItZTZiNzY2MjAwYThmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA5MjAwNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIyMDFjZGZhZWQ0OTI3MTY3MzA2ODJjZDE0MjAzMGQyMzhmNTM5N2E1YWZlOTZjMDcwNjVhYTA2MzY5OTg0MjkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.7D29vjiwWnT71Cs5-Di1Bd-cUGdkmRJ5HLELE6oOyok)
+
+### 컴포넌트 목록
+
+- Cart _(stateful)_
+- ProductItem (stateless)
+- Quantity _(stateful)_
+
+### 컴포넌트 구성
+
+`Cart` > `ProductItem` > `Quantity`
+
+![cart_component_depth](https://private-user-images.githubusercontent.com/31885579/411205092-2ce61a0c-e51e-4cc5-904f-aa6df4800642.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDU4MTksIm5iZiI6MTczOTAwNTUxOSwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMDUwOTItMmNlNjFhMGMtZTUxZS00Y2M1LTkwNGYtYWE2ZGY0ODAwNjQyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA5MDUxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ3MGM3MjFmNDg1ODQ2OGZjMTJmMWYzYTVkYjQxOTY1YWI4ZjU4ZTQ3MTE3NTI2Mjc0NmZjNjI4ZGI1Nzc3MDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TgetEQRnyARejG6E0SqxvXiTG9ompJHJxMFrFtpcGmA)
+
+### data
+
+```javascript
+{
+  id: 'product1',
+  name: '1A 우유 900mL',
+  price: 1880,
+  cartQuantity: 2,
+  stock: 10,
+  imgPath: 'assets/images/product1.png'
+}
+```
+
+`Cart` 컴포넌트에서 장바구니 상품 목록을 상태값으로 받아온다.  
+`ProductItem` 리스트 랜더링을 위한 id, 상품명, 가격, 장바구니 수량, 재고, 이미지 경로.
+
+`ProductItem` 컴포넌트에서 `Quantity`로 선택한 수량(`defaultQuantity`)을 넘겨주되 재사용성을 위해 옵셔널하게 받도록 했다.
+
+### 상태 값 갱신
+
+Cart에서 내려받은 `cartQuantity` 값을 Quantity 컴포넌트에서 상태변수 `quantity`로 설정하고,  
+Quantity의 수량 증가/감소 버튼을 누르면 props로 내려받은 `updateQuantity` 함수에 quantity 값을 전달하여  
+다시 상위 컴포넌트의 상태값 cartQuantity를 갱신하도록 하였다.
+
+### 구매 총액 계산
+
+Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 priceSum을 파생된 상태로 갖는다.
+
 </detail>
