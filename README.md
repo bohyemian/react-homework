@@ -116,7 +116,7 @@ changeQuantity 함수를 실행하면서 index를 전달하여 클로저를 형�
 
 ```javascript
 // Cart Component
-const changeQuantity = (i?: number) =>  (quantity: number) => {
+const changeQuantity = (i?: number) => (quantity: number) => {
 ```
 
 ```javascript
@@ -126,6 +126,6 @@ function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
   updateQuantity?.(nextValue);
 ```
 
-수업을 들을 때는 왜 궂이 함수를 반환하는지 미처 이해가 가지 않았었는데, 직접 코드를 짜면서 완전히 이해가 되었다. 😌  
+수업을 들을 때는 왜 궂이 함수를 반환하는지 미처 이해가 지 않았었는데, 직접 코드를 짜면서 완전히 이해가 되었다. 😌  
 역시 직접 고민하고 내 손으로 해봐야 온전히 학습이 되는구나- 다시 한번 느끼게 되었다.
 </detail>
