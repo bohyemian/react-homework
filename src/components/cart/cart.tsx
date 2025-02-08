@@ -18,21 +18,21 @@ const cartProductList: CartProductListProps[] = [
     price: 1880,
     cartQuantity: 2,
     stock: 10,
-    imgPath: 'assets/images/product1.png'
+    imgPath: 'assets/images/product1.jpg'
   }, {
     id: 'product2',
     name: '맛있는 콩나물 500g',
     price: 1280,
     cartQuantity: 2,
     stock: 5,
-    imgPath: 'assets/images/product2.png'
+    imgPath: 'assets/images/product2.jpg'
   }, {
     id: 'product3',
     name: '고소한 두부 1kg',
     price: 2280,
     cartQuantity: 1,
     stock: 15,
-    imgPath: 'assets/images/product3.png'
+    imgPath: 'assets/images/product3.jpg'
   }
 ];
 

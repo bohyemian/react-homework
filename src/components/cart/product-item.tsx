@@ -7,7 +7,7 @@ function ProductItem({name, price, stock, imgPath, cartQuantity, updateQuantity}
   return (
     <div className="flex justify-between items-center relative">
       <figure className="flex items-center gap-[18px]">
-        {imgPath ? <img className="w-[110px]" src={import.meta.env.BASE_URL + imgPath} alt={name} /> : null}
+        {imgPath ? <img className="w-[110px] rounded-full" src={import.meta.env.BASE_URL + imgPath} alt={name} /> : null}
         <figcaption className="relative overflow-hidden text-ellipsis">
           <strong className="overflow-hidden text-ellipsis text-[34px] font-normal whitespace-nowrap">{name}</strong>
           <span className="block text-[30px] font-extrabold">{priceComma}원</span>
