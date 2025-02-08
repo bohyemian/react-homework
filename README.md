@@ -94,7 +94,7 @@ const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + p
 
 ```javascript
 // Cart Component
-const changeQuantity = (q: number, i?: number) => {
+const updateQuantity = (q: number, i?: number) => {
 ```
 
 ```javascript
@@ -105,13 +105,13 @@ function Quantity({idx, max = 999, updateQuantity, defaultQuantity}: QuantityPro
 ```
 
 커링 함수로 작성했던 `generateUpdateHandler`가 떠올랐다.  
-changeQuantity 함수를 실행하면서 index를 전달하여 클로저를 형성하고, 반환한 함수에서 갱신 된 상태 값만 받아오도록 수정해 주었다.
+updateQuantity 함수를 실행하면서 index를 전달하여 클로저를 형성하고, 반환한 함수에서 갱신 된 상태 값만 받아오도록 수정해 주었다.
 
 `QuantityProps` 타입에서도 index를 삭제하고 props에서 내려주고 올려주는 코드도 삭제되어 코드가 깔끔해졌다.
 
 ```javascript
 // Cart Component
-const changeQuantity = (i?: number) => (quantity: number) => {
+const updateQuantity = (i: number) => (quantity: number) => {
 ```
 
 ```javascript
