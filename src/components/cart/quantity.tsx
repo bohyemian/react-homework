@@ -2,13 +2,13 @@ import { tm } from "@/utils/tm-merge";
 import { useState } from "react";
 
 interface QuantityProps {
-  idx: number;
-  max: number;
+  idx?: number;
+  max?: number;
   defaultQuantity?: number;
   updateQuantity?: (q: number, i?: number,) => void;
 }
 
-function Quantity({idx, max, updateQuantity, defaultQuantity}: QuantityProps) {
+function Quantity({idx, max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
   const [quantity, setQuantity] = useState<number>(defaultQuantity ?? 1);
 
   const increase = () => {
@@ -23,6 +23,7 @@ function Quantity({idx, max, updateQuantity, defaultQuantity}: QuantityProps) {
   const decrease = () => {
     if (quantity > 1) {
       const nextValue = quantity - 1;
+
       setQuantity(nextValue);
       updateQuantity?.(nextValue, idx);
     }
