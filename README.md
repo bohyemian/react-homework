@@ -19,7 +19,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 </details>
 
-<details open>
+<details>
   <summary style="font-size: 18px;font-weight: bold">Coupang 로그인 UI 개선</summary>
   - header의 로그인, 회원가입 메뉴 클릭 시 화면 토글
 
@@ -30,3 +30,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 [ ] README 파일 작성
 
 </details>
+
+<details open>
+  <summary style="font-size: 18px;font-weight: bold">쇼핑 카트 UI 구현</summary>
+</detail>
