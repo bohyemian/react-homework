@@ -88,11 +88,6 @@ const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + p
 
 ![cart](https://private-user-images.githubusercontent.com/31885579/411231609-40aae6c0-adfb-4fbb-a72c-e833588253f0.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMTQ4NzQsIm5iZiI6MTczOTAxNDU3NCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMzE2MDktNDBhYWU2YzAtYWRmYi00ZmJiLWE3MmMtZTgzMzU4ODI1M2YwLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDExMzYxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFhNDFmNGVlZmE3OTc5Mzk3NDlkYTFiMWM5NjNiMjcwZmU1MGQwNGFhZmJkYjgwMDllN2E1MmJlMmYxOWQxMWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.29HT9frUUy1ITf-U1ZraCsh4fA3B7eLxf9KvjnxdIzA)
 
-## 문제점
-
-로컬에서는 이미지가 잘 나오는데 github에는 제대로 올라가지 않는다ㅠㅠ  
-https://github.com/bohyemian/react-homework/tree/main/public/assets/images
-
 ## 마치며..
 
 `Quantity` 컴포넌트에 `index` 값을 props로 전달해주고 상태가 변경되면 구독하는 함수에 `index` 값을 같이 올려주었는데, 리스트로 랜더링 되지 않는 경우에는 불필요한 값이기 때문에 거슬리는 부분이었다.
