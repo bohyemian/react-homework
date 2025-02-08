@@ -33,10 +33,10 @@ function Cart() {
   }
 
   return (
-    <div className="flex flex-col min-w-80 max-w-[1280px] mt-20 mx-auto p-8 gap-[24px] border-[6px] border-(--color-gray-700) bg-white rounded-[12px]">
-      <h2 className="pb-5 border-b border-(--color-gray-700) font-bold">🛒 장바구니</h2>
+    <div className="cart flex flex-col min-w-80 max-w-[1280px] mt-20 mx-auto p-[34px] gap-[42px] border-[10px] border-(--color-gray-700) bg-white rounded-[14px]">
+      <h2 className="pb-5 border-b border-(--color-gray-700) text-[40px] font-bold">🛒 장바구니</h2>
       {products.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
-      <strong className="pt-7 border-t border-(--color-gray-700) text-right">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
+      <strong className="pt-7 border-t border-(--color-gray-700) text-[34px] text-(--color-gray-700) text-right">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
     </div>
   )
 }
