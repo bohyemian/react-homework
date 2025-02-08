@@ -1,6 +1,6 @@
 # React Homework ✨
 
-## 구현 화면 [바로가기](https://bohyemian.github.io/react-homework/docs/)
+## 구현 화면 [바로가기](https://bohyemian.github.io/react-homework/)
 
 <details>
   <summary style="font-size: 18px;font-weight: bold">UI 컴포넌트 과제</summary>
