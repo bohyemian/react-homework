@@ -76,6 +76,13 @@ Quantity의 수량 증가/감소 버튼을 누르면 props로 내려받은 `upda
 
 Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 priceSum을 파생된 상태로 갖는다.
 
+```javascript
+const priceSum = cartProducts.reduce(
+  (sum, { price, cartQuantity }) => sum + price * cartQuantity,
+  0
+);
+```
+
 ## 구현 화면
 
 ![cart](https://private-user-images.githubusercontent.com/31885579/411229555-70600bd7-10d0-41e2-841f-cda0f644d220.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMTQ4NzQsIm5iZiI6MTczOTAxNDU3NCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMjk1NTUtNzA2MDBiZDctMTBkMC00MWUyLTg0MWYtY2RhMGY2NDRkMjIwLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDExMzYxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZjNzg1ZDM3MTVlZTFhMTNlMjk1MTM4OWY1YmUzNzgzNzZmZTdjODY1ZTZkOTJiMzI1ODkzOTNiMzk4YjUwMTYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.YqfeM8W1VS4K1CePE_DFHnVef2RFH4dDYfANOrAOdnQ)
