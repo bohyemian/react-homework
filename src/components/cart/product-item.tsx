@@ -1,17 +1,7 @@
+import { type CartProductListProps } from "./cart";
 import Quantity from "./quantity";
 
-export interface ProductListType {
-  id: string;
-  name: string;
-  price: number;
-  cartQuantity: number;
-  stock: number;
-  imgPath?: string | null;
-  index: number;
-  updateQuantity?: (q: number, i?: number) => void;
-}
-
-function ProductItem({name, price, stock, imgPath, index, cartQuantity = 1, updateQuantity}: Omit<ProductListType, 'id'>) {
+function ProductItem({name, price, stock, imgPath, cartQuantity, updateQuantity}: Omit<CartProductListProps, 'id'>) {
   const priceComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
@@ -24,8 +14,9 @@ function ProductItem({name, price, stock, imgPath, index, cartQuantity = 1, upda
         </figcaption>
         <span className="absolute right-0 bottom-0 min-w-[110px] pt-2 text-[18px] text-(--color-gray-500) text-center whitespace-nowrap">재고: {stock}</span>
       </figure>
-      <Quantity idx={index} defaultQuantity={cartQuantity} max={stock} updateQuantity={updateQuantity} />
+      <Quantity defaultQuantity={cartQuantity} max={stock} updateQuantity={updateQuantity} />
     </div>
   )
 }
+
 export default ProductItem;

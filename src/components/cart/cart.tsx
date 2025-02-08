@@ -1,7 +1,17 @@
 import { useState } from 'react';
-import ProductItem, { ProductListType } from './product-item';
+import ProductItem from './product-item';
 
-const cartProductList: Omit<ProductListType, 'index'>[] = [
+export interface CartProductListProps {
+  id: string;
+  name: string;
+  price: number;
+  cartQuantity: number;
+  stock: number;
+  imgPath?: string | null;
+  updateQuantity?: (q: number, i?: number) => void;
+}
+
+const cartProductList: CartProductListProps[] = [
   {
     id: 'product1',
     name: '1A 우유 900mL',
@@ -29,8 +39,8 @@ const cartProductList: Omit<ProductListType, 'index'>[] = [
 function Cart() {
   const [cartProducts, setProductArray] = useState(cartProductList);
   const priceSum = cartProducts.reduce((sum, {price, cartQuantity}) => sum + (price * cartQuantity), 0);
-  const changeQuantity = (q: number, i?: number) => {
-    const changeArray = cartProducts.map((item, index) => index === i ? {...item, cartQuantity: q} : item);
+  const changeQuantity = (i?: number) =>  (quantity: number) => {
+    const changeArray = cartProducts.map((item, index) => index === i ? {...item, cartQuantity: quantity} : item);
 
     setProductArray(changeArray);
   }
@@ -43,7 +53,7 @@ function Cart() {
         </svg>
         장바구니
       </h2>
-      {cartProducts.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
+      {cartProducts.map(({id, ...product}, index) => <ProductItem key={id} updateQuantity={changeQuantity(index)} {...product} />)}
       <strong className="pt-7 border-t border-(--color-gray-700) text-[34px] text-(--color-gray-700) text-right">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
     </div>
   )
