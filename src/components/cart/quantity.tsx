@@ -4,18 +4,19 @@ import { useState } from "react";
 interface QuantityProps {
   idx: number;
   max: number;
-  updateQuantity?: (i: number, q: number) => void;
+  defaultQuantity?: number;
+  updateQuantity?: (q: number, i?: number,) => void;
 }
 
-function Quantity({idx, max, updateQuantity}: QuantityProps) {
-  const [quantity, setQuantity] = useState<number>(1);
+function Quantity({idx, max, updateQuantity, defaultQuantity}: QuantityProps) {
+  const [quantity, setQuantity] = useState<number>(defaultQuantity ?? 1);
 
   const increase = () => {
     if (max > quantity) {
       const nextValue = quantity + 1;
 
       setQuantity(nextValue);
-      updateQuantity?.(idx, nextValue);
+      updateQuantity?.(nextValue, idx);
     }
   }
 
@@ -23,7 +24,7 @@ function Quantity({idx, max, updateQuantity}: QuantityProps) {
     if (quantity > 1) {
       const nextValue = quantity - 1;
       setQuantity(nextValue);
-      updateQuantity?.(idx, nextValue);
+      updateQuantity?.(nextValue, idx);
     }
   }
 

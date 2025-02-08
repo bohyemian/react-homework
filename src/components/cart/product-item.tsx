@@ -4,13 +4,14 @@ export interface ProductListType {
   id: string;
   name: string;
   price: number;
+  cartQuantity: number;
   stock: number;
   imgPath?: string | null;
   index: number;
-  updateQuantity?: (i: number, q: number) => void;
+  updateQuantity?: (q: number, i?: number) => void;
 }
 
-function ProductItem({name, price, stock, imgPath, index, updateQuantity}: Omit<ProductListType, 'id'>) {
+function ProductItem({name, price, stock, imgPath, index, cartQuantity = 1, updateQuantity}: Omit<ProductListType, 'id'>) {
   const priceComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
@@ -23,7 +24,7 @@ function ProductItem({name, price, stock, imgPath, index, updateQuantity}: Omit<
         </figcaption>
         <span className="absolute right-0 bottom-0 min-w-[110px] pt-2 text-[18px] text-(--color-gray-500) text-center whitespace-nowrap">재고: {stock}</span>
       </figure>
-      <Quantity idx={index} max={stock} updateQuantity={updateQuantity} />
+      <Quantity idx={index} defaultQuantity={cartQuantity} max={stock} updateQuantity={updateQuantity} />
     </div>
   )
 }
