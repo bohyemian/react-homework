@@ -7,19 +7,19 @@ const products: Omit<ProductListType, 'index'>[] = [
     name: '1A 우유 900mL',
     price: 1880,
     stock: 10,
-    imgPath: 'assets/images/products/product1.png'
+    imgPath: 'images/product1.png'
   }, {
     id: 'product2',
     name: '맛있는 콩나물 500g',
     price: 1280,
     stock: 5,
-    imgPath: 'assets/images/products/product2.png'
+    imgPath: 'images/product2.png'
   }, {
     id: 'product3',
     name: '고소한 두부 1kg',
     price: 2280,
     stock: 15,
-    imgPath: 'assets/images/products/product3.png'
+    imgPath: 'images/product3.png'
   }
 ];
 
