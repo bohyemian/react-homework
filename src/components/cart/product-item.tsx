@@ -21,7 +21,7 @@ function ProductItem({name, price, stock, imgPath, index, updateQuantity}: Omit<
           <strong className="overflow-hidden text-ellipsis text-[34px] font-normal whitespace-nowrap">{name}</strong>
           <span className="block text-[30px] font-extrabold">{priceComma}원</span>
         </figcaption>
-        <span className="absolute right-0 bottom-0 min-w-[110px] text-[18px] text-(--color-gray-500) text-center whitespace-nowrap">재고: {stock}</span>
+        <span className="absolute right-0 bottom-0 min-w-[110px] pt-2 text-[18px] text-(--color-gray-500) text-center whitespace-nowrap">재고: {stock}</span>
       </figure>
       <Quantity idx={index} max={stock} updateQuantity={updateQuantity} />
     </div>
