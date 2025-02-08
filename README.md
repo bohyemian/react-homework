@@ -1,16 +1,14 @@
-# React Homework ✨
-
-## 구현 화면 [바로가기](https://bohyemian.github.io/react-homework/)
+# React Homework ✨ [바로가기](https://bohyemian.github.io/react-homework/)
 
 <details>
   <summary style="font-size: 18px;font-weight: bold">UI 컴포넌트 과제</summary>
 
-### Switch
+## Switch
 
 `input` `checkbox`로 구현하였고, css 선택자 `:checked` 상태로 스타일이 토글될 수 있도록 하였다.  
  input의 label을 제공하기 위해 id와 label 명을 props로 받도록 했다.
 
-### Chip button
+## Chip button
 
 button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상태를 분기하였다.  
  버튼의 텍스트와 초기 상태를 props로 받았다. (각각 children, active 속성)
@@ -23,7 +21,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
   <summary style="font-size: 18px;font-weight: bold">Coupang 로그인 UI 개선</summary>
   - header의 로그인, 회원가입 메뉴 클릭 시 화면 토글
 
-### 미작업 목록😭
+## 미작업 목록😭
 
 [ ] 쿠팡 회원가입 화면  
 [ ] email, password 모두 유효성 검사 통과 시 로그인 버튼 활성화  
@@ -33,22 +31,24 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 <details open>
   <summary style="font-size: 18px;font-weight: bold">쇼핑 카트 UI 구현</summary>
+
+  ## [바로가기](https://bohyemian.github.io/react-homework/?view=cart)
   
 ![cart_component](https://private-user-images.githubusercontent.com/31885579/411208791-db087cc6-2d85-4029-b6db-e6b766200a8f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDY3MDYsIm5iZiI6MTczOTAwNjQwNiwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMDg3OTEtZGIwODdjYzYtMmQ4NS00MDI5LWI2ZGItZTZiNzY2MjAwYThmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA5MjAwNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIyMDFjZGZhZWQ0OTI3MTY3MzA2ODJjZDE0MjAzMGQyMzhmNTM5N2E1YWZlOTZjMDcwNjVhYTA2MzY5OTg0MjkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.7D29vjiwWnT71Cs5-Di1Bd-cUGdkmRJ5HLELE6oOyok)
 
-### 컴포넌트 목록
+## 컴포넌트 목록
 
 - Cart _(stateful)_
 - ProductItem (stateless)
 - Quantity _(stateful)_
 
-### 컴포넌트 구성
+## 컴포넌트 구성
 
 `Cart` > `ProductItem` > `Quantity`
 
 ![cart_component_depth](https://private-user-images.githubusercontent.com/31885579/411205092-2ce61a0c-e51e-4cc5-904f-aa6df4800642.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMDU4MTksIm5iZiI6MTczOTAwNTUxOSwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMDUwOTItMmNlNjFhMGMtZTUxZS00Y2M1LTkwNGYtYWE2ZGY0ODAwNjQyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDA5MDUxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ3MGM3MjFmNDg1ODQ2OGZjMTJmMWYzYTVkYjQxOTY1YWI4ZjU4ZTQ3MTE3NTI2Mjc0NmZjNjI4ZGI1Nzc3MDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TgetEQRnyARejG6E0SqxvXiTG9ompJHJxMFrFtpcGmA)
 
-### data
+## data
 
 ```javascript
 {
