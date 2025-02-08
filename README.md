@@ -84,4 +84,44 @@ Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 priceSum�
 
 ![cart](https://private-user-images.githubusercontent.com/31885579/411231609-40aae6c0-adfb-4fbb-a72c-e833588253f0.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkwMTQ4NzQsIm5iZiI6MTczOTAxNDU3NCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMzE2MDktNDBhYWU2YzAtYWRmYi00ZmJiLWE3MmMtZTgzMzU4ODI1M2YwLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjA4VDExMzYxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFhNDFmNGVlZmE3OTc5Mzk3NDlkYTFiMWM5NjNiMjcwZmU1MGQwNGFhZmJkYjgwMDllN2E1MmJlMmYxOWQxMWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.29HT9frUUy1ITf-U1ZraCsh4fA3B7eLxf9KvjnxdIzA)
 
+## 문제점
+
+로컬에서는 이미지가 잘 나오는데 github에는 제대로 올라가지 않는다ㅠㅠ  
+https://github.com/bohyemian/react-homework/tree/main/public/assets/images
+
+## 마치며..
+
+`Quantity` 컴포넌트에 `index` 값을 props로 전달해주고 상태가 변경되면 구독하는 함수에 `index` 값을 같이 올려주었는데, 리스트로 랜더링 되지 않는 경우에는 불필요한 값이기 때문에 거슬리는 부분이었다.
+
+```javascript
+// Cart Component
+const changeQuantity = (q: number, i?: number) => {
+```
+
+```javascript
+// Quantity Component
+function Quantity({idx, max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
+  ...
+  updateQuantity?.(nextValue, idx);
+```
+
+커링 함수로 작성했던 `generateUpdateHandler`가 떠올랐다.  
+changeQuantity 함수를 실행하면서 index를 전달하여 클로저를 형성하고, 반환한 함수에서 갱신 된 상태 값만 받아오도록 수정해 주었다.
+
+`QuantityProps` 타입에서도 index를 삭제하고 props에서 내려주고 올려주는 코드도 삭제되어 코드가 깔끔해졌다.
+
+```javascript
+// Cart Component
+const changeQuantity = (i?: number) =>  (quantity: number) => {
+```
+
+```javascript
+// Quantity Component
+function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
+  ...
+  updateQuantity?.(nextValue);
+```
+
+수업을 들을 때는 왜 궂이 함수를 반환하는지 미처 이해가 가지 않았었는데, 직접 코드를 짜면서 완전히 이해가 되었다. 😌  
+역시 직접 고민하고 내 손으로 해봐야 온전히 학습이 되는구나- 다시 한번 느끼게 되었다.
 </detail>
