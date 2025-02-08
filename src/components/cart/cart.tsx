@@ -38,7 +38,7 @@ const cartProductList: CartProductListProps[] = [
 
 function Cart() {
   const [cartProducts, setProductArray] = useState(cartProductList);
-  const priceSum = cartProducts.reduce((sum, {price, cartQuantity}) => sum + (price * cartQuantity), 0);
+  const totalPrice = cartProducts.reduce((sum, {price, cartQuantity}) => sum + (price * cartQuantity), 0);
   const changeQuantity = (i?: number) =>  (quantity: number) => {
     const changeArray = cartProducts.map((item, index) => index === i ? {...item, cartQuantity: quantity} : item);
 
@@ -54,7 +54,7 @@ function Cart() {
         장바구니
       </h2>
       {cartProducts.map(({id, ...product}, index) => <ProductItem key={id} updateQuantity={changeQuantity(index)} {...product} />)}
-      <strong className="pt-7 border-t border-(--color-gray-700) text-[34px] text-(--color-gray-700) text-right">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
+      <strong className="pt-7 border-t border-(--color-gray-700) text-[34px] text-(--color-gray-700) text-right">구매 총액 : {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
     </div>
   )
 }

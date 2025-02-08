@@ -74,10 +74,10 @@ Quantity의 수량 증가/감소 버튼을 누르면 props로 내려받은 `upda
 
 ### 구매 총액 계산
 
-Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 priceSum을 파생된 상태로 갖는다.
+Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 totalPrice을 파생된 상태로 갖는다.
 
 ```javascript
-const priceSum = cartProducts.reduce((sum, { price, cartQuantity }) => sum + price * cartQuantity, 0);
+const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + price * cartQuantity, 0);
 ```
 
 ## 구현 화면
