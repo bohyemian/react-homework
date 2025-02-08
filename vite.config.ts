@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 const viteConfig = defineConfig((env) => {
   return {
-    base: process.env.NODE_ENV === 'production' ? '/react-homework/dist/' : '/',
+    base: '/react-homework/',
     build: {
       outDir: 'dist',
     },
