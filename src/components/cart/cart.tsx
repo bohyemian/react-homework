@@ -1,33 +1,36 @@
 import { useState } from 'react';
 import ProductItem, { ProductListType } from './product-item';
 
-const products: Omit<ProductListType, 'index'>[] = [
+const cartProductList: Omit<ProductListType, 'index'>[] = [
   {
     id: 'product1',
     name: '1A 우유 900mL',
     price: 1880,
+    cartQuantity: 2,
     stock: 10,
     imgPath: 'assets/images/product1.png'
   }, {
     id: 'product2',
     name: '맛있는 콩나물 500g',
     price: 1280,
+    cartQuantity: 2,
     stock: 5,
     imgPath: 'assets/images/product2.png'
   }, {
     id: 'product3',
     name: '고소한 두부 1kg',
     price: 2280,
+    cartQuantity: 1,
     stock: 15,
     imgPath: 'assets/images/product3.png'
   }
 ];
 
 function Cart() {
-  const [productArray, setProductArray] = useState(() => products.map(item => [item.price, 1]));
-  const priceSum = productArray.reduce((sum, [price, q]) => sum + (price * q), 0);
-  const changeQuantity = (i: number | undefined, q: number) => {
-    const changeArray = productArray.map((item, index) => index === i ? [item[0], q] : item);
+  const [cartProducts, setProductArray] = useState(cartProductList);
+  const priceSum = cartProducts.reduce((sum, {price, cartQuantity}) => sum + (price * cartQuantity), 0);
+  const changeQuantity = (q: number, i?: number) => {
+    const changeArray = cartProducts.map((item, index) => index === i ? {...item, cartQuantity: q} : item);
 
     setProductArray(changeArray);
   }
@@ -40,7 +43,7 @@ function Cart() {
         </svg>
         장바구니
       </h2>
-      {products.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
+      {cartProducts.map(({id, ...product}, index) => <ProductItem key={id} index={index} updateQuantity={changeQuantity} {...product} />)}
       <strong className="pt-7 border-t border-(--color-gray-700) text-[34px] text-(--color-gray-700) text-right">구매 총액 : {priceSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</strong>
     </div>
   )
