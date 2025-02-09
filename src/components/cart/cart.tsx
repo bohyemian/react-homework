@@ -6,6 +6,7 @@ export interface CartProductListProps {
   name: string;
   price: number;
   cartQuantity: number;
+  step?: number;
   stock: number;
   imgPath?: string | null;
   updateQuantity?: (q: number, i?: number) => void;
@@ -17,7 +18,8 @@ const cartProductList: CartProductListProps[] = [
     name: '1A 우유 900mL',
     price: 1880,
     cartQuantity: 2,
-    stock: 10,
+    step: 2,
+    stock: 9,
     imgPath: 'assets/images/product1.jpg'
   }, {
     id: 'product2',

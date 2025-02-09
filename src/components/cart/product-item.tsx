@@ -1,7 +1,7 @@
 import { type CartProductListProps } from "./cart";
 import Quantity from "./quantity";
 
-function ProductItem({name, price, stock, imgPath, cartQuantity, updateQuantity}: Omit<CartProductListProps, 'id'>) {
+function ProductItem({name, price, cartQuantity, stock, imgPath, step = 1,...restProps}: Omit<CartProductListProps, 'id'>) {
   const priceComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
@@ -12,9 +12,10 @@ function ProductItem({name, price, stock, imgPath, cartQuantity, updateQuantity}
           <strong className="overflow-hidden text-ellipsis text-[34px] font-normal whitespace-nowrap">{name}</strong>
           <span className="block text-[30px] font-extrabold">{priceComma}원</span>
         </figcaption>
-        <span className="absolute right-0 bottom-0 min-w-[110px] pt-2 text-[18px] text-(--color-gray-500) text-center whitespace-nowrap">재고: {stock}</span>
+        <span className="absolute right-0 bottom-0 min-w-[110px] pt-2 text-[18px] text-(--color-gray-700) text-center whitespace-nowrap">재고: {stock}</span>
+        {step > 1 ? <span className="absolute right-0 top-0 min-w-[110px] text-(--color-gray-700) text-center">{step}개 단위 구매</span> : null}
       </figure>
-      <Quantity defaultQuantity={cartQuantity} max={stock} updateQuantity={updateQuantity} />
+      <Quantity defaultQuantity={cartQuantity} max={stock} step={step} {...restProps} />
     </div>
   )
 }
