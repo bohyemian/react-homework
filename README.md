@@ -40,7 +40,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 - Cart _(stateful)_
 - ProductItem (stateless)
-- Quantity _(stateful)_
+- Quantity (stateless)
 
 ## 컴포넌트 구성
 
@@ -64,17 +64,15 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 `Cart` 컴포넌트에서 장바구니에 담은 상품 목록을 상태값으로 받아온다.  
 `ProductItem` 리스트 랜더링을 위한 id, 상품명, 가격, 장바구니 수량, 재고, 이미지 경로.
 
-`ProductItem` 컴포넌트에서 `Quantity` 컴포넌트로 선택한 수량(`defaultQuantity`)을 넘겨주되 재사용성을 위해 옵셔널하게 받도록 했다.
+`ProductItem` 컴포넌트에서 `Quantity` 컴포넌트로 선택한 수량(`defaultQuantity`)을 넘겨 주도록 했다.
 
 ### 상태 값 갱신
 
-Cart에서 내려받은 `cartQuantity` 값을 Quantity 컴포넌트에서 상태변수 `quantity`로 설정하고,  
-Quantity의 수량 증가/감소 버튼을 누르면 props로 내려받은 `updateQuantity` 함수에 quantity 값을 전달하여  
-다시 상위 컴포넌트의 상태값 cartQuantity를 갱신하도록 하였다.
+Quantity의 수량 증가/감소 버튼을 누르면 props로 내려받은 `updateQuantity` 함수에 defaultQuantity 값을 전달하여 상위 컴포넌트의 상태값 cartQuantity를 갱신하도록 하였다.
 
 ### 구매 총액 계산
 
-Cart 컴포넌트는 상태 값 price \* cartQuantity의 합산 값인 totalPrice를 파생된 상태로 갖는다.
+Cart 컴포넌트는 상태 값 price * cartQuantity의 합산 값인 totalPrice를 파생된 상태로 갖는다.
 
 ```javascript
 const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + price * cartQuantity, 0);
