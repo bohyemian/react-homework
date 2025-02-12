@@ -12,7 +12,7 @@ function CoupangGuide() {
   }
 
   return (
-    <>
+    <div className="wrap">
       <h3>Logo</h3>
       <div className="logo" style={{display: 'flex', columnGap: 24}}>
         <CoupangLogo width={180} />
@@ -39,7 +39,7 @@ function CoupangGuide() {
       <h3>Checkbox &amp; Radio</h3>
       <CoupangCheck label="자동로그인" checked={loginKeep} onChecked={handleLoginKeep} />
       <CoupangCheck label="자동로그인" checked disabled />
-    </>
+    </div>
   )
 }
 

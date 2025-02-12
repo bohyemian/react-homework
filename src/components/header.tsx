@@ -1,15 +1,29 @@
-function Header() {
+import { tm } from '@/utils/tm-merge';
+import { setUIView } from '@/utils/url-view';
+import { JSX } from 'react';
+
+interface ChangeRouteProps {
+  menuList: {
+    id: string;
+    text: string;
+    element: JSX.Element;
+  }[];
+  onChangeRoute: React.Dispatch<React.SetStateAction<string | null>>
+}
+
+function Header({menuList, onChangeRoute}: ChangeRouteProps) {
+  const handleRoute = (e :React.MouseEvent<HTMLAnchorElement>) => {
+    const id = e.currentTarget.search.split('=')[1];
+
+    e.preventDefault();
+    onChangeRoute?.(id);
+    setUIView(id);
+  }
+
   return (
     <header className="header">
       <div className="inner">
-        <a href="/react-homework/?view=week1" className="menu">1주차 과제</a>
-        <a href="/react-homework/?view=cart" className="menu">장바구니🛒</a>
-        <div className="user-menu">
-          <a href="/react-homework/?view=login" className="menu">로그인</a>
-          <a href="/react-homework/?view=join" className="menu">회원가입</a>
-          <a href="/react-homework/?view=coupangLogin" className="menu">쿠팡 로그인</a>
-        </div>
-        <a href="/react-homework/?view=guide" className="menu">guide style</a>
+        {menuList?.map(menu => <a key={menu.id} href={`/react-homework/?view=${menu.id}`} className={tm('menu', {'ml-auto' : menu.id === 'login' })} onClick={handleRoute}>{menu.text}</a>)}
       </div>
     </header>
   )

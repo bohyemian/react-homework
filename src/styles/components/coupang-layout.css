@@ -16,6 +16,8 @@ body {
   border-radius: var(--rounded);
 
   .logo {
+    display: flex;
+    justify-content: center;
     margin-block-end: 4.8rem;
     text-align: center;
   }
