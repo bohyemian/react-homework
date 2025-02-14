@@ -4,11 +4,13 @@ import SignUp from '../components/signUp';
 import CoupangGuide from '../components/coupang-guide';
 import CoupangSignIn from '../components/coupang-signin';
 import Cart from '../components/cart/cart';
+import List from '@/components/movie-list';
 import NotFound from '@/components/not-found';
 
 export const menuList = [
   {id: 'week1', text: '1주차 과제', element: <Homework />},
   {id: 'cart', text: '장바구니🛒', element: <Cart />},
+  {id: 'list', text: '리스트', element: <List />},
   {id: 'login', text: '로그인', element: <SignIn />},
   {id: 'join', text: '회원가입', element: <SignUp />},
   {id: 'coupangLogin', text: '쿠팡 로그인', element: <CoupangSignIn />},
