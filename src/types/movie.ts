@@ -42,6 +42,11 @@ export interface MovieInfoResult {
   source:    string;
 }
 
+export interface MovieInfoProps {
+  dailyBoxOffice: Partial<DailyBoxOfficeList>;
+  movieDetail: MovieInfo
+}
+
 export interface MovieInfo {
   movieCd:    string;
   movieNm:    string;
@@ -59,7 +64,7 @@ export interface MovieInfo {
   showTypes:  ShowType[];
   companys:   Company[];
   audits:     Audit[];
-  staffs:     any[];
+  staffs:     unknown[];
 }
 
 export interface Actor {
