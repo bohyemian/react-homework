@@ -6,6 +6,7 @@ import { type DailyBoxOfficeList, MovieInfo, MovieInfoResult } from "@/types/mov
 import MovieItem from "./movie-item";
 import SearchForm from "./input-form";
 import Loading from "./loading";
+import { getStorage, setStorage } from "@/utils/localStorage";
 
 const VITE_KEY = import.meta.env.VITE_KEY;
 const moveURL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/';
@@ -34,32 +35,47 @@ function List() {
   const [errorMessange, setErrorMessange] = useState<string | null>(null);
 
   useEffect(() => {
-    dataFetch(`${boxoffice}&targetDt=${yesterday}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.faultInfo) {
-          setErrorMessange(data.faultInfo.message);
-        }
+    const STORAGE_KEY_DAILYBOXOFFICE = 'dailyBoxOffice';
+    const STORAGE_KEY_MOVIE_DETAIL_LIST = 'moveDetailList';
+    const dailyBoxOfficeStorage = getStorage(STORAGE_KEY_DAILYBOXOFFICE);
+    const movieListStorage = getStorage(STORAGE_KEY_MOVIE_DETAIL_LIST);
 
-        dailyBoxOfficeList.current = data.boxOfficeResult.dailyBoxOfficeList as DailyBoxOfficeList;
+    if (dailyBoxOfficeStorage) {
+      dailyBoxOfficeList.current = dailyBoxOfficeStorage;
+      setMovieListDetail(movieListStorage);
+    } else {
+      dataFetch(`${boxoffice}&targetDt=${yesterday}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.faultInfo) {
+            return setErrorMessange(data.faultInfo.message);
+          }
 
-        const moveDetail = dailyBoxOfficeList.current?.map(({movieCd}) => {
-          return fetch(`${movieInfo}&movieCd=${movieCd}`);
-        });
+          dailyBoxOfficeList.current = data.boxOfficeResult.dailyBoxOfficeList as DailyBoxOfficeList;
+          setStorage(STORAGE_KEY_DAILYBOXOFFICE, dailyBoxOfficeList.current);
 
-        Promise.all(moveDetail)
-          .then(response => Promise.all(response.map(item => item.json())))
-          .then((movie: MovieInfoResult) => {
-            setMovieListDetail(movie.map(item => item.movieInfoResult.movieInfo));
+          const moveDetail = dailyBoxOfficeList.current?.map(({movieCd}) => {
+            return fetch(`${movieInfo}&movieCd=${movieCd}`);
+          });
+
+          Promise.all(moveDetail)
+            .then(response => Promise.all(response.map(item => item.json())))
+            .then((movie: MovieInfoResult) => {
+              const movieList = movie.map(item => item.movieInfoResult.movieInfo);
+
+              setMovieListDetail(movieList);
+              setStorage(STORAGE_KEY_MOVIE_DETAIL_LIST, movieList);
+
+            })
+            .catch((error) => console.error(error));
+
+            setError(null);
           })
-          .catch((error) => console.error(error));
-
-          setError(null);
-        })
         .catch((error) => {
           setError(error as Error);
           setMovieListDetail(null);
         });
+    }
 
     return () => {
       deleteQueryParam('movie');
