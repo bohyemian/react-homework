@@ -1,12 +1,13 @@
 import { type MovieInfoProps } from "@/types/movie";
 import { tm } from "@/utils/tm-merge";
 
-function MovieItem({dailyBoxOffice, movieDetail}: MovieInfoProps) {
+function MovieItem({dailyBoxOffice, movieDetail, query}: MovieInfoProps) {
   const {movieNm, rank, audiAcc} = dailyBoxOffice;
   const {audits, showTm, directors, actors, genres, openDt} = movieDetail;
   const {peopleNm} = directors[0];
   const youthNotAllowed = audits[0].watchGradeNm;
   const genre = genres.map(genre => genre.genreNm);
+  const words = query?.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
 
   return (
     <dl>

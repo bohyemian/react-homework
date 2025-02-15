@@ -31,11 +31,16 @@ function List() {
   const [movieListDetail, setMovieListDetail] = useState<null | MovieInfo[]>(null);
   const [error, setError] =  useState<null | Error>(null);
   const [query, setQuery] = useState(getQuery);
+  const [errorMessange, setErrorMessange] = useState<string | null>(null);
 
   useEffect(() => {
     dataFetch(`${boxoffice}&targetDt=${yesterday}`)
       .then((response) => response.json())
       .then((data) => {
+        if (data.faultInfo) {
+          setErrorMessange(data.faultInfo.message);
+        }
+
         dailyBoxOfficeList.current = data.boxOfficeResult.dailyBoxOfficeList as DailyBoxOfficeList;
 
         const moveDetail = dailyBoxOfficeList.current?.map(({movieCd}) => {
@@ -69,18 +74,24 @@ function List() {
         <p className="text-4xl font-bold tracking-[-0.05em]">{yesterdayKR} (어제 날짜 기준)</p>
       </hgroup>
 
-      <SearchForm query={query} setQuery={setQuery} />
-
+      {movieListDetail ? <SearchForm query={query} setQuery={setQuery} /> : null}
       <ul hidden={!movieListDetail} className={tm("grid justify-center gap-y-15 mt-30 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
         {dailyBoxOfficeList.current?.map(({movieCd,...restProps}, i) => (
           <li key={movieCd}>
-            <MovieItem key={movieCd} dailyBoxOffice={restProps} movieDetail={movieListDetail[i]} />
+            <MovieItem key={movieCd} query={query} dailyBoxOffice={restProps} movieDetail={movieListDetail[i]} />
           </li>
         ))}
       </ul>
 
-      {error ? '에러' : null}
-      {!movieListDetail ? <Loading /> : null}
+      {errorMessange
+        ? <div className="flex flex-col items-center gap-y-4 py-60 text-[24px]">
+            <svg aria-hidden="true" className="animate-bounce" width={52} height={52} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 18.562v-6.518C3 7.05 7.03 3 12 3s9 4.05 9 9.044v6.517c0 1.162-.967 2.519-2 2-.835-.42-2.223-.52-3 0-.874.585-2.126.585-3 0-.885-.593-1.649-.57-2.5 0-.874.585-2.126.585-3 0-.777-.52-1.665-.42-2.5 0-1.033.519-2-.838-2-2M9 15.5h6m-5-5.25H9m6 0h-1" />
+            </svg>
+            {errorMessange}😑
+          </div>
+        : null}
+      {!movieListDetail && !errorMessange? <Loading /> : null}
     </div>
   )
 }

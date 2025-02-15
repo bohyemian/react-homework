@@ -43,6 +43,7 @@ export interface MovieInfoResult {
 }
 
 export interface MovieInfoProps {
+  query: string | null;
   dailyBoxOffice: Partial<DailyBoxOfficeList>;
   movieDetail: MovieInfo
 }
