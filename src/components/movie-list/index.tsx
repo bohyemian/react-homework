@@ -1,8 +1,10 @@
-import { type DailyBoxOfficeList, MovieInfo } from "@/types/movie";
-import { dataFetch } from "@/utils/dataFetch";
 import { useEffect, useRef, useState } from "react";
+import { dataFetch } from "@/utils/dataFetch";
 import { tm } from "@/utils/tm-merge";
+import { type DailyBoxOfficeList, MovieInfo } from "@/types/movie";
 import MovieItem from "./movie-item";
+import Loading from "./loading";
+import SearchForm from "./input-form";
 
 const VITE_KEY = import.meta.env.VITE_KEY;
 const moveURL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/';
@@ -54,16 +56,14 @@ function List() {
   return (
     <div className="wrap box-office">
       <h1 className="sr-only">카드 검색 리스트 UI 구현</h1>
-      <hgroup className="flex flex-col items-center justify-center gap-y-5 pb-28">
+      <hgroup className="flex flex-col items-center justify-center gap-y-5 pb-15">
         <h2 className="text-[60px] font-[Ownglyph_wiseelist-Rg] font-black text-[var(--vivid-white)]">일별 박스오피스</h2>
-        <p className="text-3xl font-bold tracking-[-0.05em]">{yesterdayKR} (어제 날짜 기준)</p>
+        <p className="text-4xl font-bold tracking-[-0.05em]">{yesterdayKR} (어제 날짜 기준)</p>
       </hgroup>
 
-      {!movieListDetail ? '로딩' : null}
+      <SearchForm />
 
-      <ul aria-hidden={!movieListDetail} className={
-        tm("grid grid-cols-5 gap-y-15")
-      }>
+      <ul aria-hidden={!movieListDetail} className={tm("grid justify-center gap-y-15 mt-30 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
         {dailyBoxOfficeList.current?.map(({movieCd,...restProps}, i) => {
           return (
             <li key={movieCd}>
@@ -72,8 +72,10 @@ function List() {
           )
         })}
       </ul>
+
       {error ? '에러' : null}
+      {!movieListDetail ? <Loading /> : null}
     </div>
   )
 }
-export default List;;
+export default List;
