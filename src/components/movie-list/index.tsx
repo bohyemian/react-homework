@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { deleteQueryParam, getQueryParam } from "@/utils/url-view";
 import { dataFetch } from "@/utils/dataFetch";
 import { tm } from "@/utils/tm-merge";
-import { type DailyBoxOfficeList, MovieInfo } from "@/types/movie";
+import { type DailyBoxOfficeList, MovieInfo, MovieInfoResult } from "@/types/movie";
 import MovieItem from "./movie-item";
-import Loading from "./loading";
 import SearchForm from "./input-form";
+import Loading from "./loading";
 
 const VITE_KEY = import.meta.env.VITE_KEY;
 const moveURL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/';
@@ -23,10 +24,13 @@ const yesterday = (new Date(date.setDate(date.getDate() - 1))).toLocaleDateStrin
   day: "2-digit"
 }).replace(/\. /g, "").replace(/\./g, "");
 
+const getQuery = () => getQueryParam('query');
+
 function List() {
   const dailyBoxOfficeList = useRef<null | DailyBoxOfficeList[]>(null);
   const [movieListDetail, setMovieListDetail] = useState<null | MovieInfo[]>(null);
   const [error, setError] =  useState<null | Error>(null);
+  const [query, setQuery] = useState(getQuery);
 
   useEffect(() => {
     dataFetch(`${boxoffice}&targetDt=${yesterday}`)
@@ -40,7 +44,7 @@ function List() {
 
         Promise.all(moveDetail)
           .then(response => Promise.all(response.map(item => item.json())))
-          .then(movie => {
+          .then((movie: MovieInfoResult) => {
             setMovieListDetail(movie.map(item => item.movieInfoResult.movieInfo));
           })
           .catch((error) => console.error(error));
@@ -51,6 +55,10 @@ function List() {
           setError(error as Error);
           setMovieListDetail(null);
         });
+
+    return () => {
+      deleteQueryParam('movie');
+    }
   }, []);
 
   return (
@@ -61,16 +69,14 @@ function List() {
         <p className="text-4xl font-bold tracking-[-0.05em]">{yesterdayKR} (어제 날짜 기준)</p>
       </hgroup>
 
-      <SearchForm />
+      <SearchForm query={query} setQuery={setQuery} />
 
-      <ul aria-hidden={!movieListDetail} className={tm("grid justify-center gap-y-15 mt-30 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
-        {dailyBoxOfficeList.current?.map(({movieCd,...restProps}, i) => {
-          return (
-            <li key={movieCd}>
-              <MovieItem key={movieCd} dailyBoxOffice={restProps} movieDetail={movieListDetail[i]} />
-            </li>
-          )
-        })}
+      <ul hidden={!movieListDetail} className={tm("grid justify-center gap-y-15 mt-30 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
+        {dailyBoxOfficeList.current?.map(({movieCd,...restProps}, i) => (
+          <li key={movieCd}>
+            <MovieItem key={movieCd} dailyBoxOffice={restProps} movieDetail={movieListDetail[i]} />
+          </li>
+        ))}
       </ul>
 
       {error ? '에러' : null}
