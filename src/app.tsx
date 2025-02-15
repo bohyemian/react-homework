@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import Header from './components/header';
 import Router, { menuList } from './router';
-import { getUIView } from './utils/url-view';
+import { getView } from './utils/url-view';
 import '@/styles/tailwind.css';
 
 function App() {
-  const [route, setRoute] = useState<string | null>(getUIView);
+  const [route, setRoute] = useState<string | null>(getView);
 
   useEffect(() => {
     const handlePopState = () => {

@@ -1,5 +1,5 @@
 import { tm } from '@/utils/tm-merge';
-import { setUIView } from '@/utils/url-view';
+import { setView } from '@/utils/url-view';
 import { JSX } from 'react';
 
 interface ChangeRouteProps {
@@ -17,7 +17,7 @@ function Header({menuList, onChangeRoute}: ChangeRouteProps) {
 
     e.preventDefault();
     onChangeRoute?.(id);
-    setUIView(id);
+    setView(id);
   }
 
   return (
