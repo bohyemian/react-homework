@@ -1,25 +1,24 @@
 import { tm } from "@/utils/tm-merge";
-import { setQueryParam } from "@/utils/url-view";
-// import { type MovieInfo } from "@/types/movie";
+import { deleteQueryParam, setQueryParam } from "@/utils/url-view";
 
 interface SearchFormProps {
   query: string | null;
   setQuery: React.Dispatch<React.SetStateAction<string | null>>;
-  // movieList: MovieInfo[];
 }
 
 const setQueryMovie = setQueryParam('movie');
 
 function SearchForm({setQuery}: SearchFormProps) {
-  // const words = query?.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
-
   const handleSearch = (formData: FormData) => {
     const {query: keyword} = Object.fromEntries(formData);
 
     if (keyword) {
-      setQuery(keyword as string);
       setQueryMovie(keyword as string);
+    } else {
+      deleteQueryParam('movie');
     }
+
+    setQuery(keyword as string);
   }
 
   return (

@@ -33,6 +33,23 @@ function List() {
   const [error, setError] =  useState<null | Error>(null);
   const [query, setQuery] = useState(getQuery);
   const [errorMessange, setErrorMessange] = useState<string | null>(null);
+  const words = query?.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
+
+  const filteredList = query ? movieListDetail?.filter(movie => {
+    return words?.some(word => {
+      if (
+        movie.movieNm.includes(word) ||
+        movie.actors.some(actor => actor.peopleNm.includes(word)) ||
+        movie.directors.some(director => director.peopleNm.includes(word))
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }) : movieListDetail;
+
+  const filtereddailyBoxOfficeList = query ? dailyBoxOfficeList.current?.filter(movie => filteredList?.some(({movieCd}) => movie.movieCd === movieCd)) : dailyBoxOfficeList.current;
 
   useEffect(() => {
     const STORAGE_KEY_DAILYBOXOFFICE = 'dailyBoxOffice';
@@ -65,7 +82,6 @@ function List() {
 
               setMovieListDetail(movieList);
               setStorage(STORAGE_KEY_MOVIE_DETAIL_LIST, movieList);
-
             })
             .catch((error) => console.error(error));
 
@@ -92,13 +108,14 @@ function List() {
 
       {movieListDetail ? <SearchForm query={query} setQuery={setQuery} /> : null}
       <ul hidden={!movieListDetail} className={tm("grid justify-center gap-y-15 mt-30 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
-        {dailyBoxOfficeList.current?.map(({movieCd,...restProps}, i) => (
+        {filtereddailyBoxOfficeList?.map(({movieCd, ...restProps}, i) => (
           <li key={movieCd}>
-            <MovieItem key={movieCd} query={query} dailyBoxOffice={restProps} movieDetail={movieListDetail[i]} />
+            <MovieItem key={movieCd} dailyBoxOffice={restProps} movieDetail={filteredList[i]} />
           </li>
         ))}
       </ul>
 
+      {error ? <div className="flex justify-center py-50">에러!</div> : null}
       {errorMessange
         ? <div className="flex flex-col items-center gap-y-4 py-60 text-[24px]">
             <svg aria-hidden="true" className="animate-bounce" width={52} height={52} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
