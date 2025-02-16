@@ -25,7 +25,7 @@ const yesterday = (new Date(date.setDate(date.getDate() - 1))).toLocaleDateStrin
   day: "2-digit"
 }).replace(/\. /g, "").replace(/\./g, "");
 
-const getQuery = () => getQueryParam('query');
+const getQuery = () => getQueryParam('movie');
 
 function List() {
   const dailyBoxOfficeList = useRef<null | DailyBoxOfficeList[]>(null);
@@ -93,8 +93,15 @@ function List() {
         });
     }
 
+    const handlePopState = () => {
+      setQuery(getQuery);
+    };
+
+    globalThis.addEventListener('popstate', handlePopState);
+
     return () => {
       deleteQueryParam('movie');
+      globalThis.removeEventListener('popstate', handlePopState);
     }
   }, []);
 
