@@ -154,5 +154,5 @@ function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
   - 잡지 못한 typescript 에러가 너무 많다.  
   - 장르로 필터링 할 수 있도록 구현 해봐야겠다.  
   - 수업시간에 했던 코드가 없었더라면 구현하지 못했을 것 같다. 😭
-
+  - API `KEY`를 .env 파일에 넣어서 변수로 불러왔는데, 네트워크 탭이나 소스에서 버젓이(?) 보이고 있다. `KEY`를 보안처리 할 수 없는 걸까? 🤔
 </detail>
