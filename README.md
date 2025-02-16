@@ -121,7 +121,8 @@ function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
 
 수업을 들을 때는 왜 궂이 함수를 반환하는지 미처 이해가 되지 않았었는데, 직접 코드를 짜면서 완전히 이해가 되었다. 😌  
 역시 직접 고민하고 내 손으로 해봐야 온전히 학습이 되는구나- 다시 한번 느끼게 되었다.
-</detail>
+
+</details>
 
 <details open>
   <summary style="font-size: 18px;font-weight: bold">카드 검색 리스트 UI 구현</summary>
@@ -136,8 +137,8 @@ function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
   영화 목록을 하나의 배열로 합성한 것이 아니라 두개의 배열로 되어 있어서 필터링도 두번 해주어야 했다. 😭
 
   ## 요구사항
-  [x] 사용자에게 입력받아 검색한 키워드로 필터링되는 카드 리스트 UI  
-  [x] "검색" 버튼을 누르면 브라우저 주소창의 쿼리 스트링 업데이트  
+  ☑️ 사용자에게 입력받아 검색한 키워드로 필터링되는 카드 리스트 UI  
+  ☑️ "검색" 버튼을 누르면 브라우저 주소창의 쿼리 스트링 업데이트  
   🔲 직접 주소창에 URL을 입력 요청한 경우, 필터링된 UI 렌더링  
   🔲 브라우저 주소창의 이전/다음 탐색 버튼을 눌렀을 때 UI 렌더링  
   🔲 검색 쿼리에 따른 태그 활성/비활성 처리 및 UI 렌더링
