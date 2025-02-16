@@ -125,6 +125,8 @@ function Quantity({max = 999, updateQuantity, defaultQuantity}: QuantityProps) {
 
 <details open>
   <summary style="font-size: 18px;font-weight: bold">카드 검색 리스트 UI 구현</summary>
+  # [바로가기](https://bohyemian.github.io/react-homework/?view=list)  
+
   영화 정보 API를 찾다가 [영화진흥위원회](https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do) 라는 사이트를 발견하였다.
 
   일별 박스오피스 데이터를 받아와서 영화코드(movieCd)로 다시 fetch하여 영화 상세정보를 가져왔다.
