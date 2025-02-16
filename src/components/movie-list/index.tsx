@@ -36,17 +36,11 @@ function List() {
   const words = query?.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
 
   const filteredList = query ? movieListDetail?.filter(movie => {
-    return words?.some(word => {
-      if (
-        movie.movieNm.includes(word) ||
-        movie.actors.some(actor => actor.peopleNm.includes(word)) ||
-        movie.directors.some(director => director.peopleNm.includes(word))
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    return words?.some(word => (
+      movie.movieNm.includes(word) ||
+      movie.actors.some(actor => actor.peopleNm.includes(word)) ||
+      movie.directors.some(director => director.peopleNm.includes(word))
+    ));
   }) : movieListDetail;
 
   const filtereddailyBoxOfficeList = query ? dailyBoxOfficeList.current?.filter(movie => filteredList?.some(({movieCd}) => movie.movieCd === movieCd)) : dailyBoxOfficeList.current;
