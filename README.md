@@ -13,7 +13,7 @@
 button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상태를 분기하였다.  
  버튼의 텍스트와 초기 상태를 props로 받았다. (각각 children, active 속성)
 
-![크롬](https://github.com/bohyemian/react-homework/blob/7de3874cec795dcd5a39f45adff4827c7c30408d/README/ui.gif)
+![크롬](https://github.com/bohyemian/react-homework/blob/main/README/ui.gif?raw=true)
 
 </details>
 
@@ -34,7 +34,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 ## [바로가기](https://bohyemian.github.io/react-homework/?view=cart)
 
-![cart_component](https://private-user-images.githubusercontent.com/31885579/411922930-47e0f5a6-dce7-410f-b91a-e3de8dcb1449.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk2OTQzOTAsIm5iZiI6MTczOTY5NDA5MCwicGF0aCI6Ii8zMTg4NTU3OS80MTE5MjI5MzAtNDdlMGY1YTYtZGNlNy00MTBmLWI5MWEtZTNkZThkY2IxNDQ5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjE2VDA4MjEzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWMwZjdiYmI2OWViM2MzZThiNzZiZTdiNzAzNmE1YjFhNTQyYWE2OTdlOWJiN2I0NGU1ZTAyZGVkYWY2NTJmODkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.EoDVwmKPkbE53UX8FnRlNbMvAK87Gm37VUvSY6CLzxY)
+![cart_component](https://github.com/bohyemian/react-homework/blob/main/README/cart_component.png?raw=true)
 
 ## 컴포넌트 목록
 
@@ -46,7 +46,7 @@ button 태그로 구현하여 클릭할 때 클래스를 추가하여 active 상
 
 `Cart` > `ProductItem` > `Quantity`
 
-![cart_component_depth](https://private-user-images.githubusercontent.com/31885579/411205092-2ce61a0c-e51e-4cc5-904f-aa6df4800642.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk2OTQzOTAsIm5iZiI6MTczOTY5NDA5MCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMDUwOTItMmNlNjFhMGMtZTUxZS00Y2M1LTkwNGYtYWE2ZGY0ODAwNjQyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjE2VDA4MjEzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAzOTA0ODNjZjU4ZGQ2MGIwMmM0ZmMwYjM1Y2UwMTUxYjNlY2QyMWU5MTUyMGIyNDczOGQ2MTYxZWRlZWE3MTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.gbgTYcyf4Wbky_TsySiB1-aI01PYaDFKKT4fVH-tE2Y)
+![cart_component_depth](https://github.com/bohyemian/react-homework/blob/main/README/cart_component_depth.png?raw=true)
 
 ## data
 
@@ -80,11 +80,11 @@ const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + p
 
 ## 구현 화면
 
-![cart](https://private-user-images.githubusercontent.com/31885579/411229555-70600bd7-10d0-41e2-841f-cda0f644d220.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk2OTQzOTAsIm5iZiI6MTczOTY5NDA5MCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMjk1NTUtNzA2MDBiZDctMTBkMC00MWUyLTg0MWYtY2RhMGY2NDRkMjIwLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjE2VDA4MjEzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE1NzQwOGYxMDkyOGIwMTlhODdkM2EwODM0Y2UyNWRjZGNkMDkzNmQ2MDQ0YjcxOTFlMTFjYmJlZjQ4YTc1MjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.d5T0DelNoxnPgtA3PeXaHr9Wyu34LRmIz51T-yNwHVA)
+![cart](https://github.com/bohyemian/react-homework/blob/main/README/update.gif?raw=true)
 
 ### 리사이즈
 
-![cart](https://private-user-images.githubusercontent.com/31885579/411231609-40aae6c0-adfb-4fbb-a72c-e833588253f0.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzk2OTQzOTAsIm5iZiI6MTczOTY5NDA5MCwicGF0aCI6Ii8zMTg4NTU3OS80MTEyMzE2MDktNDBhYWU2YzAtYWRmYi00ZmJiLWE3MmMtZTgzMzU4ODI1M2YwLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjE2VDA4MjEzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIwMTY0Mjc4Yjc1Nzg2N2E2NjVlZWI2ODc3MjU5N2YwZjdkYWU2MDM2NmY4MTZlNDc0NzNjZGU5ZTM2ZGY5ZDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.7sn_0vff297QqsqxpTdvynW_C0tv5DOMUyTd07orw9E)
+![cart](https://github.com/bohyemian/react-homework/blob/main/README/resize.gif?raw=true)
 
 ## 마치며..
 
