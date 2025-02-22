@@ -28,10 +28,10 @@ const yesterday = (new Date(date.setDate(date.getDate() - 1))).toLocaleDateStrin
 const getQuery = () => getQueryParam('movie');
 
 function List() {
-  const dailyBoxOfficeList = useRef<null | DailyBoxOfficeList[]>(null);
+  const dailyBoxOfficeList = useRef<DailyBoxOfficeList[]>([]);
   const [movieListDetail, setMovieListDetail] = useState<null | MovieInfo[]>(null);
   const [error, setError] =  useState<null | Error>(null);
-  const [query, setQuery] = useState(getQuery);
+  const [query, setQuery] = useState<string | null>(getQuery);
   const [errorMessange, setErrorMessange] = useState<string | null>(null);
   const words = query?.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
 
@@ -49,7 +49,7 @@ function List() {
     const STORAGE_KEY_DAILYBOXOFFICE = 'dailyBoxOffice';
     const STORAGE_KEY_MOVIE_DETAIL_LIST = 'moveDetailList';
     const dailyBoxOfficeStorage = getStorage(STORAGE_KEY_DAILYBOXOFFICE);
-    const movieListStorage = getStorage(STORAGE_KEY_MOVIE_DETAIL_LIST);
+    const movieListStorage = getStorage(STORAGE_KEY_MOVIE_DETAIL_LIST) as MovieInfo[] | null;
 
     if (dailyBoxOfficeStorage) {
       dailyBoxOfficeList.current = dailyBoxOfficeStorage;
@@ -62,16 +62,12 @@ function List() {
             return setErrorMessange(data.faultInfo.message);
           }
 
-          dailyBoxOfficeList.current = data.boxOfficeResult.dailyBoxOfficeList as DailyBoxOfficeList;
+          dailyBoxOfficeList.current = data.boxOfficeResult.dailyBoxOfficeList as DailyBoxOfficeList[];
           setStorage(STORAGE_KEY_DAILYBOXOFFICE, dailyBoxOfficeList.current);
 
-          const moveDetail = dailyBoxOfficeList.current?.map(({movieCd}) => {
-            return fetch(`${movieInfo}&movieCd=${movieCd}`);
-          });
-
-          Promise.all(moveDetail)
+          Promise.all(dailyBoxOfficeList.current?.map(({movieCd}) => fetch(`${movieInfo}&movieCd=${movieCd}`)))
             .then(response => Promise.all(response.map(item => item.json())))
-            .then((movie: MovieInfoResult) => {
+            .then((movie: MovieInfoResult[]) => {
               const movieList = movie.map(item => item.movieInfoResult.movieInfo);
 
               setMovieListDetail(movieList);

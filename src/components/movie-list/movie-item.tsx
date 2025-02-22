@@ -4,7 +4,7 @@ import { tm } from "@/utils/tm-merge";
 function MovieItem({dailyBoxOffice, movieDetail}: MovieInfoProps) {
   const {rank, audiAcc} = dailyBoxOffice;
   const {movieNm, audits, showTm, directors, actors, genres, openDt} = movieDetail;
-  const {peopleNm} = directors[0];
+  const {peopleNm} = directors[0] ?? '';
   const youthNotAllowed = audits[0].watchGradeNm;
   const genre = genres.map(genre => genre.genreNm);
 
