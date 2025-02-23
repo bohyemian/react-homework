@@ -88,7 +88,7 @@ const totalPrice = cartProducts.reduce((sum, { price, cartQuantity }) => sum + p
 
 ## 마치며..
 
-`Quantity` 컴포넌트에 `index` 값을 props로 전달해주고 상태가 변경되면 구독하는 함수에 `index` 값을 같이 올려주었는데, 리스트로 랜더링 되지 않는 경우에는 불필요한 값이기 때문에 거슬리는 부분이었다.
+`Quantity` 컴포넌트에 `index` 값을 props로 전달해주고 상태가 변경되면 `updateQuantity` 함수에 `index` 값을 같이 올려주었는데, 리스트로 랜더링 되지 않는 경우에는 불필요한 값이기 때문에 거슬리는 부분이었다.
 
 ```javascript
 // Cart Component
